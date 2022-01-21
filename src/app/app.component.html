@@ -1,0 +1,40 @@
+
+
+
+    <app-navbar ></app-navbar>    
+    
+    <mat-sidenav-container class='app-drawer-container' >
+    <mat-sidenav #sidenav mode="push">
+     <img src="assets\img\logo.png" class="rounded mx-auto d-block" alt="...">
+     <mat-list role="list">
+         <div (click)="OpenClose(0)" style="cursor: pointer;"  matRipple [matRippleColor]="myColor">
+            <mat-list-item *ngIf="!this.estados[0].open" role="listitem" >Equipos <i class="fas fa-chevron-right" style="padding-left: 5%;"></i></mat-list-item>
+            <mat-list-item *ngIf="this.estados[0].open" role="listitem" >Equipos <i class="fas fa-chevron-down" style="padding-left: 5%;"></i></mat-list-item>
+        </div>
+        
+         <div (click)="OpenClose(1)"  style="cursor: pointer;"  matRipple [matRippleColor]="myColor">
+            <mat-list-item *ngIf="!this.estados[1].open" role="listitem" >Productos <i class="fas fa-chevron-right" style="padding-left: 5%;"></i></mat-list-item>
+            <mat-list-item *ngIf="this.estados[1].open" role="listitem" >Productos <i class="fas fa-chevron-down" style="padding-left: 5%;"></i></mat-list-item>
+          </div>
+          <mat-list-item matRipple [matRippleColor]="myColor" class="animate__animated animate__slideInDown" style="margin-left:20px ;" *ngIf="this.estados[1].open" role="listitem" >Asignar </mat-list-item>
+
+         <div (click)="OpenClose(2)"  style="cursor: pointer;" matRipple [matRippleColor]="myColor">
+          <mat-list-item *ngIf="!this.estados[2].open" role="listitem" >Colaboradores <i class="fas fa-chevron-right" style="padding-left: 5%;"></i></mat-list-item>
+          <mat-list-item *ngIf="this.estados[2].open" role="listitem" >Colaboradores <i class="fas fa-chevron-down" style="padding-left: 5%;"></i></mat-list-item>
+        </div>
+
+        <div (click)="OpenClose(3)"  style="cursor: pointer;"  matRipple [matRippleColor]="myColor">
+          <mat-list-item *ngIf="!this.estados[3].open" role="listitem" >Activos <i class="fas fa-chevron-right animate__animated animate__rotateInUpLeft" style="padding-left: 5%;"></i></mat-list-item>
+          <mat-list-item *ngIf="this.estados[3].open" role="listitem" >Activos <i class="fas fa-chevron-down animate__animated animate__rotateInDownLeft" style="padding-left: 5%;"></i></mat-list-item>
+        </div>
+        <mat-list-item matRipple [matRippleColor]="myColor" class="animate__animated animate__slideInDown" style="margin-left:10px; width: 100%; cursor: pointer;" *ngIf="this.estados[3].open" role="listitem" >Asignar </mat-list-item>
+        <mat-list-item matRipple [matRippleColor]="myColor" class="animate__animated animate__slideInDown" style="margin-left:10px; width: 100%; cursor: pointer;" *ngIf="this.estados[3].open" role="listitem" >Editar </mat-list-item>
+    
+      </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+     <router-outlet></router-outlet>
+    </mat-sidenav-content>
+    </mat-sidenav-container>
+
+

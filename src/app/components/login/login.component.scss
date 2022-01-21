@@ -1,0 +1,66 @@
+
+  
+@media only screen and (min-width: 300px) and (max-width: 700px) {
+  .example-card {
+    margin-top: 200px;
+    max-width: 400px;
+    display: block;
+    
+   
+  }
+  
+}
+@media only screen and (min-width: 700px) and (max-width: 1920px) {
+  .example-card {
+    margin-top: 100px;
+    max-width: 400px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+
+}
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
