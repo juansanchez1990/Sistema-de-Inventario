@@ -6,20 +6,20 @@
 <mat-card-content>
 <form [formGroup]="form" (ngSubmit)="submit()">
 <p>
-  <mat-form-field>
+  <mat-form-field appearance="fill"> 
     <input type="text" matInput placeholder="Usuario" formControlName="username">
   </mat-form-field>
 </p>
 <p>
-  <mat-form-field>
+  <mat-form-field appearance="fill">
     <input type="password" matInput placeholder="Contraseña" formControlName="password">
   </mat-form-field>
 </p>
 
+<mat-checkbox color="primary" class="example-margin">Mantener sesión abierta</mat-checkbox>
 <p class="button">
   <button type="submit" mat-raised-button color="primary">Entrar</button>
 </p>
-<mat-checkbox color="primary" class="example-margin">Mantener sesión abierta</mat-checkbox>
 
 </form>
 
