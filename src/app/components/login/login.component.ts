@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   checked = false;
   indeterminate = false;
   form: FormGroup = new FormGroup({
-    username: new FormControl(''),
+    usuario: new FormControl(''),
     password: new FormControl(''),
   });
   constructor() { }
@@ -20,9 +20,9 @@ export class LoginComponent implements OnInit {
   }
   submit() {
     if (this.form.valid) {
-      this.submitEM.emit(this.form.value);
+     console.log(this.form.value)
     }
   }
 
-  @Output() submitEM = new EventEmitter();
+
 }

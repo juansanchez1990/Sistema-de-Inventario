@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class NavBarService {
+  NombreTitulo= new BehaviorSubject<any>('');
   private sidenav!: MatSidenav;
   public setSidenav(sidenav: MatSidenav) {
     this.sidenav = sidenav;
@@ -20,5 +21,8 @@ public toggle(): void {
 this.sidenav.toggle();
 }
   constructor() { }
- 
+ enviarNombre(nombre:string){
+   this.NombreTitulo.next(nombre);
+
+ }
 }

@@ -1,9 +1,10 @@
 
 <mat-toolbar >
     <button  mat-button  mat-icon-button class="example-icon" (click)="clickMenu()" aria-label="Example icon-button with menu icon">
-     <mat-icon>menu</mat-icon>
+     <mat-icon *ngIf="IconoMenu" >menu</mat-icon>
+     <mat-icon *ngIf="!IconoMenu" >arrow_back</mat-icon>
    </button>
-   <span>Sistema de Inventario</span>
+   <span class="titulo" >{{nombre}}</span>
    <span class="example-spacer"></span>
   
  </mat-toolbar>
