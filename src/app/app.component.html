@@ -7,20 +7,19 @@
     <mat-sidenav #sidenav mode="over">
      <img src="assets\img\logo.png" class="rounded mx-auto d-block" alt="...">
      <mat-list role="list">
-         <mat-list-item (click)="CloseSidenav('Inicio')" matRipple role="listitem"  style="cursor: pointer;">
+         <mat-list-item (click)="CloseSidenav('Inicio')" routerLink="/Inicio" matRipple role="listitem"  style="cursor: pointer;">
             <div class="d-flex justify-content-between w-100 align-item-center">
             <span>Inicio</span> 
             <i class="fas fa-home"></i>
             </div>
           </mat-list-item>   
 
-         
-            <mat-list-item (click)="CloseSidenav('Equipos')" matRipple role="listitem"  style="cursor: pointer;" role="listitem" >
+          <mat-list-item (click)="CloseSidenav('Tipos de Equipos')" routerLink="/TiposEquipos" matRipple role="listitem"  style="cursor: pointer;">
             <div class="d-flex justify-content-between w-100 align-item-center">
-            <span>Colaboradores</span>  
-            <i class="fas fa-chevron-right"></i>    
+            <span>Tipos/Equipos</span> 
+            <i class="fas fa-chevron-right"></i>
             </div>
-            </mat-list-item>
+          </mat-list-item>   
 
             <div (click)="OpenClose(1)"  style="cursor: pointer;">
 
@@ -34,9 +33,12 @@
             </div>
             <mat-list-item matRipple (click)="CloseSidenav('Asignar')" class="animate__animated animate__slideInDown" style="margin-left:20px ;" *ngIf="this.estados[1].open" role="listitem" >Asignar </mat-list-item>
 
-         <div style="cursor: pointer;" matRipple [matRippleColor]="myColor">
-          <div (click)="CloseSidenav('Colaboradores')"><mat-list-item   role="listitem" >Colaboradores <i class="fas fa-chevron-right" style="padding-left: 5%;"></i></mat-list-item></div>
-        </div>
+            <mat-list-item (click)="CloseSidenav('Colaboradores')" routerLink="/inicio" matRipple role="listitem"  style="cursor: pointer;">
+              <div class="d-flex justify-content-between w-100 align-item-center">
+              <span>Colaboradores</span> 
+              <i class="fas fa-chevron-right"></i>
+              </div>
+            </mat-list-item>   
 
 
         <div (click)="OpenClose(3)"  style="cursor: pointer;">
@@ -49,11 +51,21 @@
             </div>
           </mat-list-item>
         </div>
+
         <mat-list-item matRipple (click)="CloseSidenav('Asignar')" 
           class="animate__animated animate__slideInDown" 
-          style="margin-left:20px ;" *ngIf="this.estados[3].open" role="listitem" >Asignar </mat-list-item>
+          style="margin-left:20px ;" *ngIf="this.estados[3].open" role="listitem" >Asignar
+        </mat-list-item>  
     
+          <mat-list-item (click)="CloseSidenav('Inicio')" routerLink="/login"  matRipple role="listitem"  style="cursor: pointer;">
+            <div class="d-flex justify-content-between w-100 align-item-center">
+            <span>Salir</span> 
+            <i class="fas fa-sign-out-alt"></i>
+            </div>
+          </mat-list-item>
       </mat-list>
+
+   
     </mat-sidenav>
 
     <mat-sidenav-content>

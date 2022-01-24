@@ -21,7 +21,9 @@ import { NavBarService } from './services/nav-bar.service';
 import {MatRippleModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
 import { HomeComponent } from './components/home/home.component';
+import { TiposEquiposComponent } from './components/tipos-equipos/tipos-equipos.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { HomeComponent } from './components/home/home.component';
     LoginComponent,
     NavbarComponent,
     HomeComponent,
+    TiposEquiposComponent,
+
     
   ],
   imports: [
@@ -50,7 +54,8 @@ import { HomeComponent } from './components/home/home.component';
     MatSelectModule,
     MatRippleModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule
     
   ],
   providers: [NavBarService],
