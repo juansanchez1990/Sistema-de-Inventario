@@ -1,40 +1,63 @@
 
 
 
-    <app-navbar ></app-navbar>    
+
     
     <mat-sidenav-container class='app-drawer-container' >
-    <mat-sidenav #sidenav mode="push">
+    <mat-sidenav #sidenav mode="over">
      <img src="assets\img\logo.png" class="rounded mx-auto d-block" alt="...">
      <mat-list role="list">
-      <div style="cursor: pointer;" matRipple [matRippleColor]="myColor">
-        <div (click)="CloseSidenav('Inicio')"><mat-list-item   role="listitem" >Inicio <i class="fas fa-chevron-right" style="padding-left: 5%;"></i></mat-list-item></div>
-      </div>
-         <div (click)="OpenClose(0)" style="cursor: pointer;"  matRipple [matRippleColor]="myColor">
-            <mat-list-item *ngIf="!this.estados[0].open" role="listitem" >Equipos <i class="fas fa-chevron-right" style="padding-left: 5%;"></i></mat-list-item>
-            <mat-list-item *ngIf="this.estados[0].open" role="listitem" >Equipos <i class="fas fa-chevron-down" style="padding-left: 5%;"></i></mat-list-item>
-        </div>
-        
-         <div (click)="OpenClose(1)"  style="cursor: pointer;"  matRipple [matRippleColor]="myColor">
-            <mat-list-item *ngIf="!this.estados[1].open" role="listitem" >Productos <i class="fas fa-chevron-right " style="padding-left: 5%;"></i></mat-list-item>
-            <mat-list-item *ngIf="this.estados[1].open" role="listitem" >Productos <i class="fas fa-chevron-down" style="padding-left: 5%;"></i></mat-list-item>
-          </div>
-          <mat-list-item matRipple [matRippleColor]="myColor" class="animate__animated animate__slideInDown" style="margin-left:20px ;" *ngIf="this.estados[1].open" role="listitem" >Asignar </mat-list-item>
+         <mat-list-item (click)="CloseSidenav('Inicio')" matRipple role="listitem"  style="cursor: pointer;">
+            <div class="d-flex justify-content-between w-100 align-item-center">
+            <span>Inicio</span> 
+            <i class="fas fa-home"></i>
+            </div>
+          </mat-list-item>   
+
+         
+            <mat-list-item (click)="CloseSidenav('Equipos')" matRipple role="listitem"  style="cursor: pointer;" role="listitem" >
+            <div class="d-flex justify-content-between w-100 align-item-center">
+            <span>Colaboradores</span>  
+            <i class="fas fa-chevron-right"></i>    
+            </div>
+            </mat-list-item>
+
+            <div (click)="OpenClose(1)"  style="cursor: pointer;">
+
+              <mat-list-item  matRipple role="listitem"  style="cursor: pointer;" role="listitem" >
+                <div class="d-flex justify-content-between w-100 align-item-center">
+                <span>Equipos</span>  
+                <i *ngIf="!this.estados[1].open" class="fas fa-chevron-right"></i> 
+                <i *ngIf="this.estados[1].open" class="fas fa-chevron-down"></i>
+                </div>
+              </mat-list-item>
+            </div>
+            <mat-list-item matRipple (click)="CloseSidenav('Asignar')" class="animate__animated animate__slideInDown" style="margin-left:20px ;" *ngIf="this.estados[1].open" role="listitem" >Asignar </mat-list-item>
 
          <div style="cursor: pointer;" matRipple [matRippleColor]="myColor">
           <div (click)="CloseSidenav('Colaboradores')"><mat-list-item   role="listitem" >Colaboradores <i class="fas fa-chevron-right" style="padding-left: 5%;"></i></mat-list-item></div>
         </div>
 
-        <div (click)="OpenClose(3)"  style="cursor: pointer;"  matRipple [matRippleColor]="myColor">
-          <mat-list-item *ngIf="!this.estados[3].open" role="listitem" >Activos <i class="fas fa-chevron-right" style="padding-left: 5%;"></i></mat-list-item>
-          <mat-list-item *ngIf="this.estados[3].open" role="listitem" >Activos <i class="fas fa-chevron-down " style="padding-left: 5%;"></i></mat-list-item>
+
+        <div (click)="OpenClose(3)"  style="cursor: pointer;">
+
+          <mat-list-item  matRipple role="listitem"  style="cursor: pointer;" role="listitem" >
+            <div class="d-flex justify-content-between w-100 align-item-center">
+            <span>Activos</span>  
+            <i *ngIf="!this.estados[3].open" class="fas fa-chevron-right"></i> 
+            <i *ngIf="this.estados[3].open" class="fas fa-chevron-down"></i>
+            </div>
+          </mat-list-item>
         </div>
-        <mat-list-item (click)="CloseSidenav('Asignar Equipo')" matRipple [matRippleColor]="myColor" class="animate__animated animate__slideInDown" style="margin-left:10px; width: 100%; cursor: pointer;" *ngIf="this.estados[3].open" role="listitem" >Asignar </mat-list-item>
-        <mat-list-item (click)="CloseSidenav('Editar Equipo')" matRipple [matRippleColor]="myColor" class="animate__animated animate__slideInDown" style="margin-left:10px; width: 100%; cursor: pointer;" *ngIf="this.estados[3].open" role="listitem" >Editar </mat-list-item>
+        <mat-list-item matRipple (click)="CloseSidenav('Asignar')" 
+          class="animate__animated animate__slideInDown" 
+          style="margin-left:20px ;" *ngIf="this.estados[3].open" role="listitem" >Asignar </mat-list-item>
     
       </mat-list>
     </mat-sidenav>
+
     <mat-sidenav-content>
+      <app-navbar ></app-navbar>    
      <router-outlet></router-outlet>
     </mat-sidenav-content>
     </mat-sidenav-container>

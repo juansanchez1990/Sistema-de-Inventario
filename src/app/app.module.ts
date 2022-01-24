@@ -21,6 +21,7 @@ import { NavBarService } from './services/nav-bar.service';
 import {MatRippleModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AppComponent,
     LoginComponent,
     NavbarComponent,
+    HomeComponent,
     
   ],
   imports: [

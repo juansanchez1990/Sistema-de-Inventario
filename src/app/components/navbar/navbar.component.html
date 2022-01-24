@@ -1,11 +1,14 @@
 
 <mat-toolbar >
+  <div class="d-flex justify-content-between w-100 align-items-center">
+
     <button  mat-button  mat-icon-button class="example-icon" (click)="clickMenu()" aria-label="Example icon-button with menu icon">
      <mat-icon *ngIf="IconoMenu" >menu</mat-icon>
      <mat-icon *ngIf="!IconoMenu" >arrow_back</mat-icon>
    </button>
-   <span class="titulo" >{{nombre}}</span>
-   <span class="example-spacer"></span>
+   <span >{{nombre}}</span>
+
+  </div>
   
  </mat-toolbar>
 
