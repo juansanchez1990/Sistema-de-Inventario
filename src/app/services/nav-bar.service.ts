@@ -35,7 +35,6 @@ this.sidenav.toggle();
   }
 
    back(): void {
-     
     this.historial.pop()
     if (this.historial.length > 0) {
       this.location.back()

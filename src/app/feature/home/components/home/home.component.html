@@ -1,0 +1,26 @@
+<mat-sidenav-container class='app-drawer-container'>
+  <mat-sidenav #sidenav mode="over">
+    <app-menu-items (openMenu)="sidenav.toggle()"></app-menu-items>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-navbar 
+    [showMenuButton]="true" [descripcion]="'Sistema de Inventario'" 
+    (openMenu)="sidenav.toggle()">
+  </app-navbar>
+    <div class="container-fluid h-100-with-nav">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-lg-12">
+          <div>
+            <img class="img-fluid rounded mx-auto d-block" src="assets\img\logo.png" alt="logo">
+          </div>
+          <div>
+            <p style="font-family: 'Roboto', serif;
+              font-size: 30px;" class="text-center mt-3">
+              Bienvenido Mario Tabora
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
