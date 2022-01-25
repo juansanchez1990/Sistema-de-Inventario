@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './feature/home/components/home/home.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./feature/login/login.module').then(m => m.LoginModule)},

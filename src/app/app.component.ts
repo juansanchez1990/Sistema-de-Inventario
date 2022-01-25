@@ -51,10 +51,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log('Open', this.Open)  
   }
 
-  CloseSidenav(nombre:string){
-    this.navBarService.toggle();
-    this.navBarService.enviarNombre(nombre);
-  }
 
   OpenClose(number:number){
 

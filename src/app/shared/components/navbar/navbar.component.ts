@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NavBarService } from 'src/app/services/nav-bar.service';
 import { Location } from '@angular/common'
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,8 @@ import { Location } from '@angular/common'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+  public LinkNombre: string = "";
+  private historial: string[] = []
   nombre!: string
   IconoMenu!: boolean;
   @Output() openMenu = new EventEmitter();
@@ -17,18 +19,35 @@ export class NavbarComponent implements OnInit {
   @Input() showBackButton = false;
   
   constructor(private navbarService: NavBarService,
-    private location: Location,
-  ) { }
+              private location: Location,
+              private router: Router
+  ) {
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.historial.push(event.urlAfterRedirects)
+      }
+    })
+
+
+   }
 
   ngOnInit(): void {
+ 
 this.nombre = this.descripcion;
    
   }
-  clickMenu() {
-    this.navbarService.toggle();
-  }
+ 
   back(): void {
-    this.navbarService.back()
+    this.historial.pop()
+    if (this.historial.length >= 0) {
+      this.location.back()                      
+        this.LinkNombre = String(this.router.url).substring(1);     
+      this.nombre = this.LinkNombre
+
+    } else {
+      this.router.navigateByUrl('/')
+    }
   }
 
   onOpenMenu(){

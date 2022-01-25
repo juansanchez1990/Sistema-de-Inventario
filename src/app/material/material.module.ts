@@ -15,6 +15,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatRippleModule,
     MatInputModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
   ],
   exports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatRippleModule,
     MatInputModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }
