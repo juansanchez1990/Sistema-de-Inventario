@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   IconoMenu!: boolean;
   @Output() openMenu = new EventEmitter();
   @Input() descripcion:string = '';
-  @Input() showMenuButton = false;
+  @Input() showMenuButton = true;
   @Input() showBackButton = false;
   
   constructor(private navbarService: NavBarService,
@@ -21,21 +21,8 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-    this.navbarService.NombreTitulo.subscribe(nombre => {
-      console.log('nombreNav', this.nombre)
-
-      if (this.nombre === undefined || nombre === 'Inicio') {
-        this.nombre = 'Sistema de inventario'
-        this.IconoMenu = true;
-      }
-      else {
-
-        this.nombre = nombre
-        this.IconoMenu = false;
-      }
-      console.log('IconoMenu', this.IconoMenu)
-    })
+this.nombre = this.descripcion;
+   
   }
   clickMenu() {
     this.navbarService.toggle();

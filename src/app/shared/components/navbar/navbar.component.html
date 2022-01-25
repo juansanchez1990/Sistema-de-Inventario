@@ -1,11 +1,11 @@
 <mat-toolbar>
   <div class="d-flex justify-content-between w-100 align-items-center">
-    <button *ngIf="IconoMenu"  mat-button  mat-icon-button class="example-icon" (click)="onOpenMenu()" aria-label="Example icon-button with menu icon">
-     <mat-icon *ngIf="IconoMenu" >menu</mat-icon>
+    <button *ngIf="showMenuButton"  mat-button  mat-icon-button class="example-icon" (click)="onOpenMenu()" aria-label="Example icon-button with menu icon">
+     <mat-icon *ngIf="showMenuButton" >menu</mat-icon>
    </button>
 
-   <button *ngIf="!IconoMenu"  mat-button  mat-icon-button class="example-icon" (click)="back()" aria-label="Example icon-button with menu icon">
-    <mat-icon *ngIf="!IconoMenu" >arrow_back</mat-icon>
+   <button *ngIf="showBackButton"  mat-button  mat-icon-button class="example-icon" (click)="back()" aria-label="Example icon-button with menu icon">
+    <mat-icon *ngIf="showBackButton" >arrow_back</mat-icon>
   </button>
    <span >{{nombre}}</span>
 
