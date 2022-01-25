@@ -12,18 +12,17 @@
           <span>Tipos/Equipos</span> 
           <i class="fas fa-chevron-right"></i>
           </div>
+        </mat-list-item>  
+         
+        <mat-list-item (click)="CloseSidenav()" routerLink="/Equipos" matRipple role="listitem"  style="cursor: pointer;">
+          <div class="d-flex justify-content-between w-100 align-item-center">
+          <span>Equipos</span> 
+          <i class="fas fa-chevron-right"></i>
+          </div>
         </mat-list-item>   
 
-          <div (click)="OpenClose(1)"  style="cursor: pointer;">
+      
 
-            <mat-list-item  matRipple role="listitem"  style="cursor: pointer;" role="listitem" >
-              <div class="d-flex justify-content-between w-100 align-item-center">
-              <span>Equipos</span>  
-              <i *ngIf="!this.estados[1].open" class="fas fa-chevron-right"></i> 
-              <i *ngIf="this.estados[1].open" class="fas fa-chevron-down"></i>
-              </div>
-            </mat-list-item>
-          </div>
           <mat-list-item matRipple (click)="CloseSidenav()" class="animate__animated animate__slideInDown" style="margin-left:20px ;" *ngIf="this.estados[1].open" role="listitem" >Asignar </mat-list-item>
 
           <mat-list-item (click)="CloseSidenav()" routerLink="/inicio" matRipple role="listitem"  style="cursor: pointer;">
