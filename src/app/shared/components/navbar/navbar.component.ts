@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   @Input() descripcion:string = '';
   @Input() showMenuButton = true;
   @Input() showBackButton = false;
+  @Input() showNav :boolean =true;
   
   constructor(private navbarService: NavBarService,
               private location: Location,

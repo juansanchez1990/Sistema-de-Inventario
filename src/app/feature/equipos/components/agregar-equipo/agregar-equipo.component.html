@@ -1,0 +1,38 @@
+<app-navbar [showMenuButton]="false" [showBackButton]="true" [showNav]="showNavBar" [descripcion]="'Editar Equipo'">
+</app-navbar>
+<div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
+    <form>
+        <mat-form-field class="Wide100" appearance="fill">
+            <mat-label>Nombre del equipo</mat-label>
+            <input matInput #message maxlength="256" placeholder="Ejem. Computadora Dell....">
+            <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="Wide100" appearance="fill">
+            <mat-label>Marca</mat-label>
+            <mat-select disableRipple>
+                <mat-option value="1">Marca 1</mat-option>
+                <mat-option value="2">Marca 2</mat-option>
+                <mat-option value="3">Marca 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="Wide100" appearance="fill">
+            <mat-label>Tipo</mat-label>
+            <mat-select disableRipple>
+                <mat-option value="1">Tipo 1</mat-option>
+                <mat-option value="2">Tipo 2</mat-option>
+                <mat-option value="3">Tipo 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="Wide100" appearance="fill">
+            <mat-label>Número de Referencia</mat-label>
+            <input matInput #message maxlength="256" placeholder="Ejem. Referncia 100000101...">
+            <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <button class="m-1" mat-raised-button color="primary">Guardar</button>
+        <button class="m-1" mat-raised-button color="warn">Cancelar</button>
+    </form>
+</div>
