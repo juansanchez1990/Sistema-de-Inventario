@@ -1,58 +1,86 @@
 <img src="assets\img\logo.png" class="Imagen" alt="...">
 <mat-list role="list">
-       <mat-list-item (click)="CloseSidenav()" routerLink="/Inicio" matRipple role="listitem"  style="cursor: pointer;">
-          <div class="d-flex justify-content-between w-100 align-item-center">
-          <span>Inicio</span> 
-          <i class="fas fa-home"></i>
-          </div>
-        </mat-list-item>   
+  <!-- Seccion Inicio -->
+  <mat-list-item (click)="CloseSidenav()" routerLink="/Inicio" matRipple role="listitem" style="cursor: pointer;">
+    <div class="d-flex justify-content-between w-100 align-item-center">
+      <span>Inicio</span>
+      <i class="fas fa-home"></i>
+    </div>
+  </mat-list-item>
+  <!-- Fin Seccion Inicio -->
 
-        <mat-list-item (click)="CloseSidenav()" routerLink="/TiposEquipo" matRipple role="listitem"  style="cursor: pointer;">
-          <div class="d-flex justify-content-between w-100 align-item-center">
-          <span>Tipos/Equipos</span> 
-          <i class="fas fa-chevron-right"></i>
-          </div>
-        </mat-list-item>  
-         
-        <mat-list-item (click)="CloseSidenav()" routerLink="/Equipos" matRipple role="listitem"  style="cursor: pointer;">
-          <div class="d-flex justify-content-between w-100 align-item-center">
-          <span>Equipos</span> 
-          <i class="fas fa-chevron-right"></i>
-          </div>
-        </mat-list-item>   
+  <!-- Seccion Tipos Equipos -->
+  <mat-list-item (click)="CloseSidenav()" routerLink="/TiposEquipo" matRipple role="listitem" style="cursor: pointer;">
+    <div class="d-flex justify-content-between w-100 align-item-center">
+      <span>Tipos/Equipos</span>
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </mat-list-item>
+  <!-- Fin Seccion Colaboradores -->
 
-      
+    <!-- Seccion Equipos -->
 
-          <mat-list-item matRipple (click)="CloseSidenav()" class="animate__animated animate__slideInDown" style="margin-left:20px ;" *ngIf="this.estados[1].open" role="listitem" >Asignar </mat-list-item>
+    <div (click)="OpenClose(1)" style="cursor: pointer;">
 
-          <mat-list-item (click)="CloseSidenav()" routerLink="/inicio" matRipple role="listitem"  style="cursor: pointer;">
-            <div class="d-flex justify-content-between w-100 align-item-center">
-            <span>Colaboradores</span> 
-            <i class="fas fa-chevron-right"></i>
-            </div>
-          </mat-list-item>   
-
-
-      <div (click)="OpenClose(3)"  style="cursor: pointer;">
-
-        <mat-list-item  matRipple role="listitem"  style="cursor: pointer;" role="listitem" >
-          <div class="d-flex justify-content-between w-100 align-item-center">
-          <span>Activos</span>  
-          <i *ngIf="!this.estados[3].open" class="fas fa-chevron-right"></i> 
-          <i *ngIf="this.estados[3].open" class="fas fa-chevron-down"></i>
-          </div>
-        </mat-list-item>
-      </div>
-
-      <mat-list-item matRipple (click)="CloseSidenav()" 
-        class="animate__animated animate__slideInDown" 
-        style="margin-left:20px ;" *ngIf="this.estados[3].open" role="listitem" >Asignar
-      </mat-list-item>  
+      <mat-list-item matRipple role="listitem" style="cursor: pointer;" role="listitem">
+        <div class="d-flex justify-content-between w-100 align-item-center">
+          <span>Equipos</span>
+          <i *ngIf="!this.estados[1].open" class="fas fa-chevron-right"></i>
+          <i *ngIf="this.estados[1].open" class="fas fa-chevron-down"></i>
+        </div>
+      </mat-list-item>
+    </div>
+    <mat-list-item matRipple (click)="CloseSidenav()" routerLink="/Equipos" class="animate__animated animate__slideInDown"
+      style="margin-left:20px ;" *ngIf="this.estados[1].open" role="listitem">Administrar
+    </mat-list-item>
   
-        <mat-list-item (click)="CloseSidenav()" routerLink="/Login"  matRipple role="listitem"  style="cursor: pointer;">
-          <div class="d-flex justify-content-between w-100 align-item-center">
-          <span>Salir</span> 
-          <i class="fas fa-sign-out-alt"></i>
-          </div>
-        </mat-list-item>
-    </mat-list>
+  
+    <!-- Fin Seccion Equipos -->
+
+
+  <!-- Seccion Departamentos -->
+  <mat-list-item (click)="CloseSidenav()" routerLink="/Departamentos" matRipple role="listitem" style="cursor: pointer;">
+    <div class="d-flex justify-content-between w-100 align-item-center">
+      <span>Departamentos</span>
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </mat-list-item>
+  <!-- Fin Seccion Departamentos -->
+
+
+
+  <!-- Seccion Colaboradores -->
+
+  <mat-list-item (click)="CloseSidenav()" routerLink="/Colaboradores" matRipple role="listitem" style="cursor: pointer;">
+    <div class="d-flex justify-content-between w-100 align-item-center">
+      <span>Colaboradores</span>
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </mat-list-item>
+  <!-- Fin Seccion Colaboradores -->
+
+  <!-- Seccion Activos -->
+  <div (click)="OpenClose(3)" style="cursor: pointer;">
+
+    <mat-list-item matRipple role="listitem" style="cursor: pointer;" role="listitem">
+      <div class="d-flex justify-content-between w-100 align-item-center">
+        <span>Activos</span>
+        <i *ngIf="!this.estados[3].open" class="fas fa-chevron-right"></i>
+        <i *ngIf="this.estados[3].open" class="fas fa-chevron-down"></i>
+      </div>
+    </mat-list-item>
+  </div>
+  <mat-list-item matRipple (click)="CloseSidenav()" class="animate__animated animate__slideInDown"
+    style="margin-left:20px ;" *ngIf="this.estados[3].open" role="listitem">Asignar
+  </mat-list-item>
+  <!-- Fin Seccion Activos -->
+
+  <!-- Seccion Salir -->
+  <mat-list-item (click)="CloseSidenav()" routerLink="/Login" matRipple role="listitem" style="cursor: pointer;">
+    <div class="d-flex justify-content-between w-100 align-item-center">
+      <span>Salir</span>
+      <i class="fas fa-sign-out-alt"></i>
+    </div>
+  </mat-list-item>
+  <!-- Fin Seccion Salir -->
+</mat-list>

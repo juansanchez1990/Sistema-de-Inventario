@@ -1,4 +1,4 @@
-<app-navbar [showMenuButton]="false" [showBackButton]="true" [showNav]="showNavBar" [descripcion]="'Editar Equipo'">
+<app-navbar [showMenuButton]="false" [showBackButton]="true" [showNav]="ShowDataEdit" [descripcion]="'Editar Equipo'">
 </app-navbar>
 <div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
     <form>
@@ -32,7 +32,20 @@
             <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
         </mat-form-field>
 
-        <button class="m-1" mat-raised-button color="primary">Guardar</button>
+        <mat-form-field *ngIf="ShowDataEdit" class="Wide100" appearance="fill">
+            <mat-label>Estado</mat-label>
+            <mat-select disableRipple>
+                <mat-option value="1">Estado 1</mat-option>
+                <mat-option value="2">Estado 2</mat-option>
+                <mat-option value="3">Estado 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-checkbox *ngIf="ShowDataEdit" class="mb-2" color="primary">Activo</mat-checkbox>
+        <br>
+        <button class="m-1" mat-raised-button color="primary">
+            <span *ngIf="!ShowDataEdit">Guardar</span>
+            <span *ngIf="ShowDataEdit">Actualizar</span>
+        </button>
         <button class="m-1" mat-raised-button color="warn">Cancelar</button>
     </form>
 </div>

@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
+    <form >
+        <mat-form-field class="inputNombre" appearance="fill">
+          <mat-label>Nombre del Departamento</mat-label>
+          <input matInput #message maxlength="256" placeholder="Ejem. Computadora Dell....">
+          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Agregar Departamento</button>
+      </form>
+    </div>

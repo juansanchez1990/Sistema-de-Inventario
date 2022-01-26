@@ -1,6 +1,6 @@
 <app-navbar [showMenuButton]="false" [showBackButton]="true" [descripcion]="'Equipos'">
 </app-navbar>
-<mat-tab-group mat-align-tabs="center">
+<mat-tab-group [selectedIndex]="selectedIndex" mat-align-tabs="center">
 
     <mat-tab label="Agregar">
     <app-agregar-equipo></app-agregar-equipo>

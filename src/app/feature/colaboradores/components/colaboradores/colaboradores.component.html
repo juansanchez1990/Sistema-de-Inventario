@@ -1,0 +1,16 @@
+<app-navbar 
+    [showMenuButton]="false" [showBackButton]="true" [descripcion]="'Colaboradores'">
+  </app-navbar>
+    <mat-tab-group mat-align-tabs="center"  >
+
+    <mat-tab label="Agregar"> 
+       <app-agregar-colaborador></app-agregar-colaborador>
+   
+    </mat-tab>
+    
+    <mat-tab  label="Lista"> 
+    <app-lista-colaboradores></app-lista-colaboradores>
+    </mat-tab>
+    
+</mat-tab-group>
+

@@ -1,0 +1,17 @@
+<app-navbar 
+    [showMenuButton]="false" [showBackButton]="true" [descripcion]="'Departamentos'">
+  </app-navbar>
+    <mat-tab-group mat-align-tabs="center"  >
+
+    <mat-tab label="Agregar"> 
+        <app-agregar-depto></app-agregar-depto>
+   
+    </mat-tab>
+    
+    <mat-tab  label="Lista"> 
+     <app-lista-depto></app-lista-depto>
+    </mat-tab>
+    
+</mat-tab-group>
+
+

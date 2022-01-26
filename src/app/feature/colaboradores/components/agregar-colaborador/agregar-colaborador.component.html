@@ -1,0 +1,61 @@
+<app-navbar [showMenuButton]="false" [showBackButton]="true" [showNav]="ShowDataEdit" [descripcion]="'Editar Empleado'">
+</app-navbar>
+<div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
+    <form >
+        <mat-form-field class="Inputs" appearance="fill">
+          <mat-label>Código del Empleado</mat-label>
+          <input matInput #message maxlength="256" placeholder="Ejem. Computadora Dell....">
+          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="Inputs" appearance="fill">
+          <mat-label>Nombre del Empleado</mat-label>
+          <input matInput #message maxlength="256" placeholder="Ejem. Computadora Dell....">
+          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field  class="Inputs" appearance="fill">
+            <mat-label>Departamento</mat-label>
+            <mat-select disableRipple>
+                <mat-option value="1">Departamento 1</mat-option>
+                <mat-option value="2">Departamento 2</mat-option>
+                <mat-option value="3">Departamento 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    
+
+      
+      </form>
+
+     
+    </div>
+    <p style="font-size: large; font-weight: bold;" class="text-center">Equipo Asignado</p>
+    <div *ngIf="ShowDataEdit" class="cardBorder m-3">
+      <div class="row">
+          <div class="col-8">
+    
+              <mat-list >
+                  <ul>
+                      <li><p style="font-size: medium;">Descripción: Laptop Dell</p></li>
+                      <li><p style="font-size: medium;">Tipo: Computadora Portátil</p></li>
+                      <li><p style="font-size: medium;">Marca: Dell </p></li>
+                      <li><p style="font-size: medium;">Estado: Asignado</p></li>
+                      <li><p style="font-size: medium;">Activo</p></li>                
+                  </ul>
+              </mat-list>
+          </div>
+    
+          <div class="col-2">
+            <button  class="Button" routerLink="AgregarColaborador/1" mat-raised-button color="primary"><i style="font-size: 50px;" class="fas fa-chevron-right"></i></button>
+          </div>
+    
+      </div>
+    
+              
+     </div>
+     <button mat-raised-button class="m-3" color="primary">
+      <span *ngIf="!ShowDataEdit">Agregar empleado</span> 
+      <span *ngIf="ShowDataEdit">Editar empleado</span> 
+      </button>
+     <button mat-raised-button class="m-3" color="warn">Cancelar</button>

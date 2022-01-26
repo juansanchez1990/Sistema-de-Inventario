@@ -10,12 +10,12 @@ export class AgregarEquipoComponent implements OnInit {
 
   constructor(private rutaActiva: ActivatedRoute) { }
   idEquipo:number=0;
-  showNavBar:boolean=false
+  ShowDataEdit:boolean=false
   ngOnInit(): void {
     this.idEquipo =Number(this.rutaActiva.snapshot.params.parametro)
 
     if(this.idEquipo>=1){
-      this.showNavBar=true
+      this.ShowDataEdit=true
     }
 
   } 
