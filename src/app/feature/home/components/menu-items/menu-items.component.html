@@ -1,7 +1,7 @@
 <img src="assets\img\logo.png" class="Imagen" alt="...">
 <mat-list role="list">
   <!-- Seccion Inicio -->
-  <mat-list-item (click)="CloseSidenav()" routerLink="/Inicio" matRipple role="listitem" style="cursor: pointer;">
+  <mat-list-item (click)="CloseSidenav()" routerLink="/Home" matRipple role="listitem" style="cursor: pointer;">
     <div class="d-flex justify-content-between w-100 align-item-center">
       <span>Inicio</span>
       <i class="fas fa-home"></i>
@@ -71,12 +71,15 @@
     </mat-list-item>
   </div>
   <mat-list-item matRipple (click)="CloseSidenav()" class="animate__animated animate__slideInDown"
-    style="margin-left:20px ;" *ngIf="this.estados[3].open" role="listitem">Asignar
+    style="margin-left:20px ;" *ngIf="this.estados[3].open" role="listitem">Asignación
+  </mat-list-item>
+  <mat-list-item matRipple (click)="CloseSidenav()" class="animate__animated animate__slideInDown"
+    style="margin-left:20px ;" *ngIf="this.estados[3].open" role="listitem">Historial 
   </mat-list-item>
   <!-- Fin Seccion Activos -->
 
   <!-- Seccion Salir -->
-  <mat-list-item (click)="CloseSidenav()" routerLink="/Login" matRipple role="listitem" style="cursor: pointer;">
+  <mat-list-item (click)="CloseSidenav()" routerLink="/" matRipple role="listitem" style="cursor: pointer;">
     <div class="d-flex justify-content-between w-100 align-item-center">
       <span>Salir</span>
       <i class="fas fa-sign-out-alt"></i>
