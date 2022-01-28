@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'Departamentos', loadChildren: () => import('./feature/departamentos/departamentos.module').then(m => m.DepartamentosModule)},
   { path: 'Colaboradores', loadChildren: () => import('./feature/colaboradores/colaboradores.module').then(m => m.ColaboradoresModule)},
   { path: 'Asignacion', loadChildren: () => import('./feature/activos/activos.module').then(m => m.ActivosModule)},
+  { path: 'RegistrarUsuario', loadChildren: () => import('./feature/registro/registro.module').then(m => m.RegistroModule)},
   {path: 'Historial', component: HistorialComponent},];
 
 @NgModule({
