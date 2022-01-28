@@ -23,7 +23,8 @@
             </mat-select>
         </mat-form-field>
 
-    
+        <mat-checkbox *ngIf="ShowDataEdit"  class="mb-2" color="primary">Desactivar usuario</mat-checkbox>
+
 
       
       </form>
@@ -56,6 +57,7 @@
      </div>
      <button mat-raised-button class="m-3" color="primary">
       <span *ngIf="!ShowDataEdit">Agregar empleado</span> 
-      <span *ngIf="ShowDataEdit">Editar empleado</span> 
+      <span *ngIf="ShowDataEdit">Guardar Cambios</span> 
       </button>
-     <button mat-raised-button class="m-3" color="warn">Cancelar</button>
+     <button *ngIf="!ShowDataEdit" mat-raised-button class="m-3" routerLink="/Home"  color="warn">Cancelar</button>
+     <button *ngIf="ShowDataEdit" mat-raised-button class="m-3" routerLink="/Colaboradores"  color="warn">Cancelar</button>
