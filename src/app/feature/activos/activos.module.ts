@@ -8,6 +8,7 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { ListaColaboradoresDeptoComponent } from './components/lista-colaboradores-depto/lista-colaboradores-depto.component';
 import { AsignarEquipoComponent } from './components/asignar-equipo/asignar-equipo.component';
 import { HistorialComponent } from './components/historial/historial.component';
+import { EquiposAsignadosComponent } from './components/equipos-asignados/equipos-asignados.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HistorialComponent } from './components/historial/historial.component';
     ListaDeptoAsignarComponent,
     ListaColaboradoresDeptoComponent,
     AsignarEquipoComponent,
-    HistorialComponent
+    HistorialComponent,
+    EquiposAsignadosComponent
   ],
   imports: [
     CommonModule,
