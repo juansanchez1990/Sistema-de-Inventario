@@ -5,7 +5,7 @@ import { EquiposComponent } from './components/equipos/equipos.component';
 
 const routes: Routes = [
   {path: '', component: EquiposComponent},
-  {path: 'AgregarEquipo/:parametro', component: AgregarEquipoComponent}
+  {path: 'EquiposAsignados/:parametro', component: AgregarEquipoComponent}
 ];
 
 @NgModule({

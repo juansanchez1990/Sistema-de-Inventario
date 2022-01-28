@@ -1,0 +1,22 @@
+<app-navbar [showMenuButton]="false" [showBackButton]="true" [descripcion]="'Asignar-Equipo'">
+</app-navbar>
+<div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
+    <form >
+        <mat-form-field class="Wide100" appearance="fill">
+          <mat-label># de referencia del equipo</mat-label>
+          <input matInput #message maxlength="256" >
+          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
+</form>
+</div>
+   <mat-card class="m-5">
+    <mat-list >
+        <ul>
+            <li><p style="font-size: medium;">Descripción: Laptop comercial</p></li>
+            <li><p style="font-size: medium;">Tipo: Computadora portatil</p></li>
+            <li><p style="font-size: medium;">Marca: Dell</p></li>
+        </ul>
+    </mat-list>
+    <button mat-raised-button color="primary" style="width: 100%;">Asignar Equipo</button>
+    
+    </mat-card>

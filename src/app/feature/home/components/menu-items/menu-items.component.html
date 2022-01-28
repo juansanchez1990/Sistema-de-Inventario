@@ -70,11 +70,11 @@
       </div>
     </mat-list-item>
   </div>
-  <mat-list-item matRipple (click)="CloseSidenav()" class="animate__animated animate__slideInDown"
-    style="margin-left:20px ;" *ngIf="this.estados[3].open" role="listitem">Asignación
+  <mat-list-item matRipple   (click)="CloseSidenav()" routerLink="/Asignacion"class="animate__animated animate__slideInDown"
+    style="margin-left:20px; cursor: pointer;" *ngIf="this.estados[3].open" role="listitem">Asignación
   </mat-list-item>
-  <mat-list-item matRipple (click)="CloseSidenav()" class="animate__animated animate__slideInDown"
-    style="margin-left:20px ;" *ngIf="this.estados[3].open" role="listitem">Historial 
+  <mat-list-item matRipple   (click)="CloseSidenav()" routerLink="/Historial" class="animate__animated animate__slideInDown"
+    style="margin-left:20px; cursor: pointer;" *ngIf="this.estados[3].open" role="listitem">Historial 
   </mat-list-item>
   <!-- Fin Seccion Activos -->
 
