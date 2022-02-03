@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 
 
@@ -8,7 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [],
   imports: [
     CommonModule,
-    BrowserAnimationsModule
-  ]
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
+  ],
+  providers: [ToastrService]
 })
 export class CoreModule { }
