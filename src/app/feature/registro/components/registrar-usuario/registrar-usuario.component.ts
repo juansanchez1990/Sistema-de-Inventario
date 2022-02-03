@@ -9,11 +9,9 @@ export class RegistrarUsuarioComponent implements OnInit {
   checked = false;
   indeterminate = false;
   form: FormGroup = new FormGroup({
-    nombreCompleto: new FormControl(''),
-    usuario: new FormControl(''),
-    password: new FormControl(''),
-    celular: new FormControl(''),
-    correo: new FormControl(''),
+    NombreCompleto: new FormControl(''),
+    Usuario: new FormControl(''),
+    Contraseña: new FormControl(''),
   });
   constructor() { }
 
@@ -24,6 +22,7 @@ export class RegistrarUsuarioComponent implements OnInit {
      console.log(this.form.value)
     }
   }
+  
   changeCheckbox(event:Event){
     console.log(event.target)
  }

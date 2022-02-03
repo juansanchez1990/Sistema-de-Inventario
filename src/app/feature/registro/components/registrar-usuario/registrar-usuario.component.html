@@ -8,21 +8,14 @@
             <mat-card-content>
                 <form class="d-flex flex-column" [formGroup]="form" (ngSubmit)="submit()">
                     <mat-form-field appearance="fill">
-                        <input type="text" matInput placeholder="Nombre Completo" formControlName="nombreCompleto">
+                        <input type="text" matInput placeholder="Nombre Completo" formControlName="NombreCompleto">
                     </mat-form-field>
                     <mat-form-field appearance="fill">
-                        <input type="text" matInput placeholder="Usuario" formControlName="usuario">
+                        <input type="text" matInput placeholder="Usuario" formControlName="Usuario">
                     </mat-form-field>
                     <mat-form-field appearance="fill">
-                        <input type="password" matInput placeholder="Contraseña" formControlName="password">
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <input type="text" matInput placeholder="Celular" formControlName="celular">
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <input type="email" matInput placeholder="Correo" formControlName="correo">
-                    </mat-form-field>
-               
+                        <input type="password" matInput placeholder="Contraseña" formControlName="Contraseña">
+                    </mat-form-field>                
                     <mat-checkbox  class="mb-2" color="primary">Administrador</mat-checkbox>
                     <button routerLink="Home" class="p-1" type="submit" mat-raised-button color="primary">Entrar</button>
                 </form>
