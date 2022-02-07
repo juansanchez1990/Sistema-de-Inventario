@@ -1,4 +1,6 @@
-import { Component, OnInit,AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit,AfterViewInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { TipoEquipo } from '../../models/tipos-equipo';
+import { TiposEquipoService } from '../../servicios/tipos-equipo.service';
 
 
 
@@ -8,15 +10,26 @@ import { Component, OnInit,AfterViewInit, ViewChild } from '@angular/core';
   styleUrls: ['./lista-equipos.component.scss']
 })
 export class ListaEquiposComponent implements OnInit {
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+ 
+  @Input() tiposEquipo: TipoEquipo[] = [];
+  @Output() tipoEquipo: EventEmitter<TipoEquipo>= new EventEmitter();
+  ListaTipos: TipoEquipo[] = [];
   constructor() {
 
   }
 
+  ngOnInit() {
+    setTimeout (() => {
+      this.ListaTipos = this.tiposEquipo
 
+   }, 1000);
+  
+  }
 
+  ObtenerTipo(TipoEquipo:TipoEquipo){
 
-  ngOnInit(): void {
+this.tipoEquipo.emit(TipoEquipo)
+
   }
 }
 

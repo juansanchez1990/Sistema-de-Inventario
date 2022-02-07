@@ -6,6 +6,10 @@ import { TiposEquipoComponent } from './components/tipos-equipo/tipos-equipo.com
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { ListaEquiposComponent } from './components/lista-equipos/lista-equipos.component';
+import { TiposEquipoService } from './servicios/tipos-equipo.service';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,10 +19,14 @@ import { ListaEquiposComponent } from './components/lista-equipos/lista-equipos.
    
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     TiposEquipoRoutingModule,
     SharedModule,
-    MaterialModule
-  ]
+    MaterialModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
+  ],
+  providers: [TiposEquipoService, ToastrService]
 })
 export class TiposEquipoModule { }

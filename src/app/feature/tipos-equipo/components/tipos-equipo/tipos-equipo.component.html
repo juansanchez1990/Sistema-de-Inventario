@@ -5,10 +5,10 @@
 
     <mat-tab label="Agregar"> 
         <div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
-        <form >
+        <form [formGroup]="TipoForm" (ngSubmit)="RegistrarTipo()" >
             <mat-form-field class="inputNombre" appearance="fill">
               <mat-label>Nombre del equipo</mat-label>
-              <input matInput #message maxlength="256" placeholder="Ejem. Computadora Dell....">
+              <input  matInput #message maxlength="256" formControlName="Descripcion" placeholder="Ejem. Computadora Dell....">
               <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
             </mat-form-field>
             <button mat-raised-button color="primary">Agregar Equipo</button>
@@ -16,8 +16,8 @@
         </div>
     </mat-tab>
     
-    <mat-tab  label="Lista"> 
-        <app-lista-equipos></app-lista-equipos>
+    <mat-tab   label="Lista"> 
+        <app-lista-equipos [tiposEquipo]="ListaTiposEquipo" (tipoEquipo)="BorrarTipo($event)"></app-lista-equipos>
     </mat-tab>
     
 </mat-tab-group>

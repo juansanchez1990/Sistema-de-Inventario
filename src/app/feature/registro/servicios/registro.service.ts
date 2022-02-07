@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Usuario } from '../models/usuario';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RegistroService {
   private AppUrl= 'https://localhost:44356/api/Inventario/';
   constructor(private http: HttpClient) { }
