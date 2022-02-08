@@ -1,9 +1,10 @@
 <mat-list role="list">
-    <mat-list-item *ngFor="let tipoEquipo of ListaTipos"   role="listitem" >
+    <mat-list-item *ngFor="let tipoEquipo of tiposEquipo"   role="listitem" >
         <div  class="d-flex justify-content-between w-100 align-item-center">
             <span>{{tipoEquipo.Descripcion}}</span>
-            <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
-                <mat-icon (click)="ObtenerTipo(tipoEquipo)">delete</mat-icon>
+              <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+                <mat-icon *ngIf="tipoEquipo.Activo" (click)="ObtenerTipo(tipoEquipo,false)">delete</mat-icon>
+                <mat-icon *ngIf="!tipoEquipo.Activo" (click)="ObtenerTipo(tipoEquipo,true)">done</mat-icon>
               </button>
         </div>
     </mat-list-item>
@@ -13,7 +14,7 @@
 
 
 
-<mat-paginator [length]="this.ListaTipos.length"
+<mat-paginator [length]="this.tiposEquipo.length"
               [pageSize]="10"
               [pageSizeOptions]="[5, 10, 25, 100]"
               aria-label="Select page">

@@ -25,22 +25,27 @@ export class TiposEquipoComponent implements OnInit {
 
   BorrarTipo(Tipo:TipoEquipo){
 
-    setTimeout (() => {
-      let TipoDelete:TipoEquipo={
-        Descripcion: Tipo.Descripcion,
-        Activo: false,  
-        id:Tipo.id    
-      }
+    let TipoDelete:TipoEquipo={
+      Descripcion: Tipo.Descripcion,
+      Activo: Tipo.Activo,  
+      id:Tipo.id    
+    }
 
-     this.TipoService.BorrarTipoEquipo(TipoDelete).subscribe(data=>{
-      this.toastr.success('¡Hecho!', 'Tipo de equipo borrado');
-      this.ListaTiposEquipos();
-     })   
-   }, 125);
+   this.TipoService.BorrarTipoEquipo(TipoDelete).subscribe(data=>{
+     if (Tipo.Activo===false){
+       this.toastr.success('¡Hecho!', 'Tipo de equipo desactivado');
+     }
+     else {
+
+       this.toastr.success('¡Hecho!', 'Tipo de equipo activado');
+     }
+    this.ListaTiposEquipos();
+   })   
 
   }
 
   RegistrarTipo(){
+  
     if (this.TipoForm.valid) {
       try{
       
@@ -51,6 +56,7 @@ export class TiposEquipoComponent implements OnInit {
         }
         this.TipoService.RegistrarTipoEquipo(TipoEquipo).subscribe(data=>{  
           this.toastr.success('¡Hecho!', 'Tipo de equipo registrado');
+          this.ListaTiposEquipos()
           this.TipoForm.reset();
         }, (error:any) => {
           console.log(error)
@@ -58,7 +64,7 @@ export class TiposEquipoComponent implements OnInit {
    
       }
         )
-        this.ListaTiposEquipos()
+    
       }
   
        
@@ -73,9 +79,10 @@ export class TiposEquipoComponent implements OnInit {
   }
 
   ListaTiposEquipos(){
-    this.ListaTiposEquipo = []
+
       this.TipoService.ObtenerTipoEquipo().subscribe(tipoData=>{
         this.ListaTiposEquipo = tipoData
+        console.log('Tipo', tipoData)
 
       })
     }

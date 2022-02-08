@@ -7,6 +7,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { EquiposListaComponent } from './components/equipos-lista/equipos-lista.component';
 import { AgregarEquipoComponent } from './components/agregar-equipo/agregar-equipo.component';
+import { EquipoService } from './servicios/equipo.service';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,10 +20,14 @@ import { AgregarEquipoComponent } from './components/agregar-equipo/agregar-equi
     AgregarEquipoComponent
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     EquiposRoutingModule,
     SharedModule,
-    MaterialModule
-  ]
+    MaterialModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
+  ],
+  providers: [EquipoService, ToastrService]
 })
 export class EquiposModule { }

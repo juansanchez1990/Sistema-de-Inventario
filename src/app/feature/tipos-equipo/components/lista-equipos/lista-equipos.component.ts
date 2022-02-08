@@ -1,4 +1,4 @@
-import { Component, OnInit,AfterViewInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { TipoEquipo } from '../../models/tipos-equipo';
 import { TiposEquipoService } from '../../servicios/tipos-equipo.service';
 
@@ -10,25 +10,26 @@ import { TiposEquipoService } from '../../servicios/tipos-equipo.service';
   styleUrls: ['./lista-equipos.component.scss']
 })
 export class ListaEquiposComponent implements OnInit {
- 
+
   @Input() tiposEquipo: TipoEquipo[] = [];
-  @Output() tipoEquipo: EventEmitter<TipoEquipo>= new EventEmitter();
-  ListaTipos: TipoEquipo[] = [];
+  @Output() borrarEquipo: EventEmitter<TipoEquipo> = new EventEmitter();
+
   constructor() {
 
   }
 
   ngOnInit() {
-    setTimeout (() => {
-      this.ListaTipos = this.tiposEquipo
 
-   }, 1000);
-  
+
   }
 
-  ObtenerTipo(TipoEquipo:TipoEquipo){
-
-this.tipoEquipo.emit(TipoEquipo)
+  ObtenerTipo(TipoEquipo: TipoEquipo, estado:boolean) {
+     let DataEnviar:TipoEquipo={
+      id:TipoEquipo.id,
+      Descripcion:TipoEquipo.Descripcion,
+      Activo:estado
+     }
+    this.borrarEquipo.emit(DataEnviar)
 
   }
 }
