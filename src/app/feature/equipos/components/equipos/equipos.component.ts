@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ListaEquipo } from '../../models/lista-equipo';
+import { EquipoService } from '../../servicios/equipo.service';
 
 @Component({
   selector: 'app-equipos',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EquiposComponent implements OnInit {
   selectedIndex = 0;
-  constructor() { }
+  ListaEquipos:ListaEquipo[]=[]
+  constructor(private EquipoServicio:EquipoService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+ this.EquipoServicio.Equipos.subscribe(equipo=>{
+   this.ListaEquipos = equipo
+   console.log('ListaEquipos', this.ListaEquipos)
+
+ })
   }
 
 }

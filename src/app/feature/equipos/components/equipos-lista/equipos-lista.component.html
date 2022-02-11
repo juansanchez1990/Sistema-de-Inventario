@@ -22,51 +22,29 @@
     </mat-select>
   </mat-form-field>
 
-<div class="cardBorder m-3">
+<div *ngFor="let equipo of Equipos"  class="cardBorder m-3">
   <div class="row">
       <div class="col-8">
 
-          <mat-list >
+          <mat-list  >
               <ul>
-                  <li><p style="font-size: medium;">Descripción: Laptop Dell</p></li>
-                  <li><p style="font-size: medium;">Tipo: Computadora Portátil</p></li>
-                  <li><p style="font-size: medium;">Marca: Dell </p></li>
-                  <li><p style="font-size: medium;">Estado: Asignado</p></li>
-                  <li><p style="font-size: medium;">Activo</p></li>                
+                  <li><p style="font-size: medium;">Descripción: {{equipo.Descripcion}}</p></li>
+                  <li><p style="font-size: medium;">Tipo: {{equipo.TipoDeEquipo}}</p></li>
+                  <li><p style="font-size: medium;">Marca: {{equipo.MarcaEquipo}} </p></li>
+                  <li><p style="font-size: medium;">Estado: {{equipo.Estado}}</p></li>
+                  <li><p style="font-size: medium;">Activo: {{equipo.Activo}}</p></li>                
               </ul>
           </mat-list>
       </div>
 
       <div class="col-2">
-        <button  class="Button" routerLink="AgregarEquipo/1" mat-raised-button color="primary"><i style="font-size: 50px;" class="fas fa-chevron-right"></i></button>
+        <button  class="Button" routerLink="AgregarEquipo/{{equipo.id}}" mat-raised-button color="primary"><i style="font-size: 50px;" class="fas fa-chevron-right"></i></button>
       </div>
 
   </div>          
  </div>
  
- <div class="cardBorder m-3">
-    <div class="row">
-        <div class="col-8">
-  
-            <mat-list >
-                <ul>
-                    <li><p style="font-size: medium;">Descripción: Laptop Dell</p></li>
-                    <li><p style="font-size: medium;">Tipo: Computadora Portátil</p></li>
-                    <li><p style="font-size: medium;">Marca: Dell </p></li>
-                    <li><p style="font-size: medium;">Estado: Asignado</p></li>
-                    <li><p style="font-size: medium;">Activo</p></li>                
-                </ul>
-            </mat-list>
-        </div>
-  
-        <div class="col-2">
-          <button  class="Button" routerLink="AgregarEquipo/2"  mat-raised-button color="primary"><i style="font-size: 50px;" class="fas fa-chevron-right"></i></button>
-        </div>
-  
-    </div>
-  
-            
-   </div>
+
             
             
         

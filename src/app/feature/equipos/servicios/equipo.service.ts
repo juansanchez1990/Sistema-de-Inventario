@@ -3,15 +3,19 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TipoEquipo } from '../../tipos-equipo/models/tipos-equipo';
 import { Equipo } from '../models/equipo';
+import { ListaEquipo } from '../models/lista-equipo';
 @Injectable({
   providedIn: 'root'
 })
 export class EquipoService {
+  Equipos= new BehaviorSubject<ListaEquipo[]>([]);
+
   private AppUrl= 'https://localhost:44356/api/Inventario/';
   constructor(private http: HttpClient) { 
 
     this.ObtenerMarcas();
     this.ObtenerTipoEquipo();
+    this. ObtenerEquipos()
 
   }
   ObtenerMarcas(){
@@ -21,11 +25,18 @@ export class EquipoService {
     return this.http.get<TipoEquipo[]>(this.AppUrl+'TiposEquipos')
   }
   ObtenerEquipos(){
-    return this.http.get<Equipo[]>(this.AppUrl+'ObtenerEquipos')
+    return this.http.get<ListaEquipo[]>(this.AppUrl+'ObtenerEquipos')
+  }
+  ObtenerEquiposPorId(id:number){
+    return this.http.get<ListaEquipo[]>(this.AppUrl+'ObtenerEquiposPorId'+'/'+id)
   }
 
   GuardarEquipo(Equipo:Equipo){
     return this.http.post(this.AppUrl+'RegistrarEquipo',Equipo)
+  }
+
+  EnviarEquipos(Equipos:ListaEquipo[]){
+    this.Equipos.next(Equipos)
   }
 
 }
