@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Colaborador } from '../../models/colaborador';
+import { ColaboradoresService } from '../../servicios/colaboradores.service';
 
 @Component({
   selector: 'app-colaboradores',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./colaboradores.component.scss']
 })
 export class ColaboradoresComponent implements OnInit {
+  Colaboradores:Colaborador[]=[];
+  constructor(private ColabServicio:ColaboradoresService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.ObtenerColaboradores()
   }
-
+ObtenerColaboradores(){
+this.ColabServicio.Colaboradores.subscribe(colaborador=>{
+  this.Colaboradores = colaborador
+})
+}
 }

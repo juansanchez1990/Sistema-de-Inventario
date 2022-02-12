@@ -13,6 +13,7 @@ import { EquipoService } from '../../servicios/equipo.service';
   styleUrls: ['./agregar-equipo.component.scss']
 })
 export class AgregarEquipoComponent implements OnInit {
+  checked: boolean = true;
   Marcas: any = []
   Tipos: TipoEquipo[] = []
   Equipos: ListaEquipo[] = []
@@ -24,6 +25,7 @@ export class AgregarEquipoComponent implements OnInit {
   idEquipo: number = 0;
   ShowDataEdit: boolean = false
   EquipoForm!:FormGroup
+  EquipoActivo:string='';
   
   ngOnInit() {
     this.ObtenerMarcas()
@@ -33,11 +35,23 @@ export class AgregarEquipoComponent implements OnInit {
 
     if (this.idEquipo >= 1) {
       this.EquipoServicio.ObtenerEquiposPorId(this.idEquipo).subscribe(equipo=>{
+      
+   
+        this.EquipoActivo = equipo[0].Activo
+        if (this.EquipoActivo==='Si'){
+          this.checked = true
+        }
+        else if (this.EquipoActivo==='No'){
+          this.checked = false
+        }
+    
           this.EquipoForm = new FormGroup({
           Descripcion: new FormControl(equipo[0].Descripcion, Validators.required),
           Activo: new FormControl(equipo[0].Activo),
           CodigoReferencia: new FormControl(equipo[0].Referencia, Validators.required),
-        
+          MarcaEquipo: new FormControl(equipo[0].MarcaEquipo.id, Validators.required),
+          TipoDeEquipo: new FormControl(equipo[0].TipoDeEquipo.id, Validators.required),
+          Estado: new FormControl(equipo[0].Estado, Validators.required),
         });        
       })
       this.ShowDataEdit = true
@@ -47,7 +61,9 @@ export class AgregarEquipoComponent implements OnInit {
         Descripcion: new FormControl('', Validators.required),
         Activo: new FormControl(''),
         CodigoReferencia: new FormControl('', Validators.required),
-      
+        MarcaEquipo: new FormControl('', Validators.required),
+        TipoDeEquipo: new FormControl('', Validators.required),  
+        Estado: new FormControl('', Validators.required),  
       });
     }
 
@@ -83,18 +99,43 @@ export class AgregarEquipoComponent implements OnInit {
   let Equipo:Equipo={
     Descripcion:this.EquipoForm.value['Descripcion'],
     CodigoReferencia:this.EquipoForm.value['CodigoReferencia'],
-    IdTipo: this.idTipo!,
-    IdMarca: this.idMarca,
-    Estado:1,
-    Activo:true
+    IdTipo: this.EquipoForm.value['TipoDeEquipo'],
+    IdMarca: this.EquipoForm.value['MarcaEquipo'],
+    Estado:this.EquipoForm.value['Estado'],
+    Activo:this.checked
   }
-  this.EquipoServicio.GuardarEquipo(Equipo).subscribe(data=>{
-    this.toastr.success('¡Hecho!', 'Tipo de equipo registrado');
-    this.ObtenerEquipos()
-    this.EquipoForm.reset();
+  if (this.ShowDataEdit===false){
 
-  })
+    this.EquipoServicio.GuardarEquipo(Equipo).subscribe(data=>{
+      this.toastr.success('¡Hecho!', 'Equipo Registrado');
+      this.ObtenerEquipos()
+      this.EquipoForm.reset();
+  
+    })
+  }
+
+  else {
+    this.EquipoServicio.ActualizarEquipo(this.idEquipo,Equipo).subscribe(data=>{
+      this.toastr.success('¡Hecho!', 'Equipo Actualizado');
+      this.ObtenerEquipos()
+      this.EquipoForm.reset();
+  
+    })
+  }
 
  }
+
+
+ IsActivo(event:any){
+  let checked = event.checked
+  if (checked ===true){
+    this.checked = true
+  }
+
+  else {
+    this.checked = false;
+  }
+  console.log('checked', this.checked)
+}
 
 }

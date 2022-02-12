@@ -10,14 +10,16 @@ import { AgregarEquipoComponent } from './components/agregar-equipo/agregar-equi
 import { EquipoService } from './servicios/equipo.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BuscarEquipoPipe } from './pipes/buscar-equipo.pipe';
 
 
 @NgModule({
   declarations: [
     EquiposComponent,
     EquiposListaComponent,
-    AgregarEquipoComponent
+    AgregarEquipoComponent,
+    BuscarEquipoPipe
   ],
   imports: [
     HttpClientModule,
@@ -25,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     EquiposRoutingModule,
     SharedModule,
     MaterialModule,
+    FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot()
   ],

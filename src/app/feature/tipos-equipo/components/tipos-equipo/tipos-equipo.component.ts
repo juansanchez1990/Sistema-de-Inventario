@@ -79,11 +79,8 @@ export class TiposEquipoComponent implements OnInit {
   }
 
   ListaTiposEquipos(){
-
       this.TipoService.ObtenerTipoEquipo().subscribe(tipoData=>{
         this.ListaTiposEquipo = tipoData
-        console.log('Tipo', tipoData)
-
       })
     }
   

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Colaborador } from '../../models/colaborador';
 
 @Component({
   selector: 'app-lista-colaboradores',
@@ -6,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-colaboradores.component.scss']
 })
 export class ListaColaboradoresComponent implements OnInit {
-
+  @Input() Colaboradores: Colaborador[] = [];
   constructor() { }
-
+  
   ngOnInit(): void {
   }
 

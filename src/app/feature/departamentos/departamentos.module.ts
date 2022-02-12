@@ -7,6 +7,10 @@ import { ListaDeptoComponent } from './components/lista-depto/lista-depto.compon
 import { DepartamentosComponent } from './components/departamentos/departamentos.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { DepartamentoService } from './servicios/departamento.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,9 +21,13 @@ import { MaterialModule } from 'src/app/material/material.module';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     DepartamentosRoutingModule,
     SharedModule,
-    MaterialModule
-  ]
+    MaterialModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
+  ],
+  providers: [DepartamentoService, ToastrService]
 })
 export class DepartamentosModule { }

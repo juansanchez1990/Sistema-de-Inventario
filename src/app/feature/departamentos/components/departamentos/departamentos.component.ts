@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { Departamento } from '../../models/departamento';
+import { DepartamentoService } from '../../servicios/departamento.service';
 
 @Component({
   selector: 'app-departamentos',
@@ -6,10 +9,40 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./departamentos.component.scss']
 })
 export class DepartamentosComponent implements OnInit {
+  ListaDepartamentos:Departamento[]=[]
+  constructor(private DeptoServicio:DepartamentoService,
+              private toastr:ToastrService) { }
 
-  constructor() { }
+  ngOnInit() {
+  this.ObtenerDepartamentos()
+  }
+ObtenerDepartamentos(){
+  this.DeptoServicio.Departamentos.subscribe(depto=>{
+    this.ListaDepartamentos =depto;
+  })
+}
+  BorrarDepartamento(Departamento:Departamento){
 
-  ngOnInit(): void {
+    let DepartamentoDelete:Departamento={
+      Descripcion: Departamento.Descripcion,
+      Activo: Departamento.Activo,  
+      id:Departamento.id  ,
+      IdSucursal:Departamento.IdSucursal  
+    }
+
+   this.DeptoServicio.BorrarDepartamento(DepartamentoDelete).subscribe(data=>{
+     if (Departamento.Activo===false){
+       this.toastr.success('¡Hecho!', 'Tipo de equipo desactivado');
+     }
+     else {
+
+       this.toastr.success('¡Hecho!', 'Tipo de equipo activado');
+     }
+     this.DeptoServicio.ObtenerDepartamentos().subscribe(departamento=>{
+      this.DeptoServicio.EnviarDepartamentos(departamento);
+    })
+   })   
+
   }
 
 }

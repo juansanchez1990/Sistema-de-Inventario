@@ -30,9 +30,15 @@ export class EquipoService {
   ObtenerEquiposPorId(id:number){
     return this.http.get<ListaEquipo[]>(this.AppUrl+'ObtenerEquiposPorId'+'/'+id)
   }
+  ObtenerEquiposPorTipo(id:number){
+    return this.http.get<ListaEquipo[]>(this.AppUrl+'ObtenerEquipoPorTipo'+'/'+id)
+  }
 
   GuardarEquipo(Equipo:Equipo){
     return this.http.post(this.AppUrl+'RegistrarEquipo',Equipo)
+  }
+  ActualizarEquipo(idEquipo:number,Equipo:Equipo){
+    return this.http.put(this.AppUrl+'RegistrarEquipo'+'/'+idEquipo,Equipo)
   }
 
   EnviarEquipos(Equipos:ListaEquipo[]){

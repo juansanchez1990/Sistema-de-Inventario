@@ -2,8 +2,11 @@
 <mat-form-field  class="Wide100 p-1 m-1" floatLabel="never">
     <div class="row">
         <div class="col-10">
-            <input matInput placeholder="Buscar"> 
-
+            <input matInput placeholder="Buscar por descripcion"
+            #BuscarEquipo 
+            id="search" 
+            [(ngModel)]="NombreABuscar" 
+            name="NombreABuscar">             
         </div>
         <div class="col-2">
             <i class="fas fa-search"></i>
@@ -16,13 +19,18 @@
 <mat-form-field class="Wide100 p-1" appearance="fill">
     <mat-label>Tipo</mat-label>
     <mat-select disableRipple>
-      <mat-option value="1">Option 1</mat-option>
-      <mat-option value="2">Option 2</mat-option>
-      <mat-option value="3">Option 3</mat-option>
+      <mat-option
+      (click)="ObtenerEquipos()"
+       [value]="0" >Todos</mat-option>
+      <mat-option 
+       *ngFor="let tipo of Tipos" 
+       (click)="ObtenerTipoSeleccionado(tipo)"
+       [value]="tipo.id">{{tipo.Descripcion}}
+      </mat-option>
     </mat-select>
   </mat-form-field>
 
-<div *ngFor="let equipo of Equipos"  class="cardBorder m-3">
+<div *ngFor="let equipo of Equipos | buscarEquipo: NombreABuscar"  class="cardBorder m-3">
   <div class="row">
       <div class="col-8">
 

@@ -9,7 +9,7 @@
     </mat-tab>
     
     <mat-tab  label="Lista"> 
-     <app-lista-depto></app-lista-depto>
+     <app-lista-depto [Departamentos]="ListaDepartamentos" (borrarDepartamento)="BorrarDepartamento($event)"></app-lista-depto>
     </mat-tab>
     
 </mat-tab-group>

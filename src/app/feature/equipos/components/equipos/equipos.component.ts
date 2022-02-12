@@ -15,7 +15,7 @@ export class EquiposComponent implements OnInit {
   ngOnInit() {
  this.EquipoServicio.Equipos.subscribe(equipo=>{
    this.ListaEquipos = equipo
-   console.log('ListaEquipos', this.ListaEquipos)
+
 
  })
   }

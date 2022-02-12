@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TipoEquipo } from 'src/app/feature/tipos-equipo/models/tipos-equipo';
 import { Equipo } from '../../models/equipo';
 import { ListaEquipo } from '../../models/lista-equipo';
 import { EquipoService } from '../../servicios/equipo.service';
@@ -10,12 +11,44 @@ import { EquipoService } from '../../servicios/equipo.service';
 })
 export class EquiposListaComponent implements OnInit {
   
-  constructor() { }
+  constructor(private EquipoServicio:EquipoService) { }
+  Tipos: TipoEquipo[] = []
+  idTipo!:number
+  NombreABuscar!:string;
   @Input() Equipos: ListaEquipo[] = [];
+  ListaEquipos: ListaEquipo[]= [];
   ngOnInit() {
     setTimeout (() => {
-      console.log('Equipos', this.Equipos)
-   }, 125);
+      this.ListaEquipos = this.Equipos
+
+   }, 1000);
+ 
+this.ListaTiposEquipos()
+  }
+
+  ListaTiposEquipos(){
+    this.EquipoServicio.ObtenerTipoEquipo().subscribe(tipoData=>{
+      this.Tipos = tipoData 
+    })
+  }
+
+  ObtenerEquipos() {
+    this.EquipoServicio.ObtenerEquipos().subscribe(equipo => {
+      this.Equipos = equipo   
+    })
+  }
+
+  ObtenerTipoSeleccionado(Tipo:TipoEquipo) {
+    if(Tipo.id===undefined){
+      this.idTipo=0
+    }
+    else {
+      this.idTipo = Tipo.id ;
+      this.EquipoServicio.ObtenerEquiposPorTipo(this.idTipo).subscribe(equipo=>{
+        this.Equipos= equipo
+      })
+    }
+    console.log('Tipo', Tipo.id)
 
   }
 

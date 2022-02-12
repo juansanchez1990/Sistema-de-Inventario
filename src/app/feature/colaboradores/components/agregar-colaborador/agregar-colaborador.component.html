@@ -1,32 +1,33 @@
 <app-navbar [showMenuButton]="false" [showBackButton]="true" [showNav]="ShowDataEdit" [descripcion]="'Editar Empleado'">
 </app-navbar>
 <div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
-    <form >
-        <mat-form-field class="Inputs" appearance="fill">
-          <mat-label>Código del Empleado</mat-label>
-          <input matInput #message maxlength="256" placeholder="Ejem. Computadora Dell....">
-          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
-        </mat-form-field>
+    <form [formGroup]="ColaboradorForm" (ngSubmit)="RegistrarColaborador()"  >
 
         <mat-form-field class="Inputs" appearance="fill">
-          <mat-label>Nombre del Empleado</mat-label>
-          <input matInput #message maxlength="256" placeholder="Ejem. Computadora Dell....">
+          <mat-label>Codigo del empleado</mat-label>
+          <input  matInput #message maxlength="256" formControlName="CodigoEmpleado">
           <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
         </mat-form-field>
 
         <mat-form-field  class="Inputs" appearance="fill">
             <mat-label>Departamento</mat-label>
-            <mat-select disableRipple>
-                <mat-option value="1">Departamento 1</mat-option>
-                <mat-option value="2">Departamento 2</mat-option>
-                <mat-option value="3">Departamento 3</mat-option>
-            </mat-select>
+            <mat-select  
+            formControlName="IdDepartamento">
+            <mat-option  *ngFor="let depto of Departamentos" 
+            [value]="depto.id"
+            >{{depto.Descripcion}}
+            </mat-option>
+        </mat-select>
         </mat-form-field>
 
         <mat-checkbox *ngIf="ShowDataEdit"  class="mb-2" color="primary">Desactivar usuario</mat-checkbox>
 
+        <button mat-raised-button class="m-3" color="primary">
+          <span *ngIf="!ShowDataEdit">Agregar empleado</span> 
+          <span *ngIf="ShowDataEdit">Guardar Cambios</span> 
+          </button>
+          <button *ngIf="!ShowDataEdit" mat-raised-button class="m-3" routerLink="/Home"  color="warn">Cancelar</button>
 
-      
       </form>
 
      
@@ -55,9 +56,5 @@
     
               
      </div>
-     <button mat-raised-button class="m-3" color="primary">
-      <span *ngIf="!ShowDataEdit">Agregar empleado</span> 
-      <span *ngIf="ShowDataEdit">Guardar Cambios</span> 
-      </button>
-     <button *ngIf="!ShowDataEdit" mat-raised-button class="m-3" routerLink="/Home"  color="warn">Cancelar</button>
+   
      <button *ngIf="ShowDataEdit" mat-raised-button class="m-3" routerLink="/Colaboradores"  color="warn">Cancelar</button>

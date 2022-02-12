@@ -7,6 +7,10 @@ import { AgregarColaboradorComponent } from './components/agregar-colaborador/ag
 import { ListaColaboradoresComponent } from './components/lista-colaboradores/lista-colaboradores.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
+import { ColaboradoresService } from './servicios/colaboradores.service';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,9 +21,13 @@ import { MaterialModule } from 'src/app/material/material.module';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     ColaboradoresRoutingModule,
     SharedModule,
-    MaterialModule
-  ]
+    MaterialModule,
+    ToastrModule.forRoot()
+  ],
+  providers: [ColaboradoresService, ToastrService]
 })
 export class ColaboradoresModule { }

@@ -1,10 +1,21 @@
 <div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
-    <form >
-        <mat-form-field class="inputNombre" appearance="fill">
-          <mat-label>Nombre del Departamento</mat-label>
-          <input matInput #message maxlength="256" placeholder="Ejem. Computadora Dell....">
-          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
-        </mat-form-field>
-        <button mat-raised-button color="primary">Agregar Departamento</button>
-      </form>
+  <form [formGroup]="DepartamentoForm" (ngSubmit)="RegistrarDepartamento()" >
+    <mat-form-field class="inputNombre" appearance="fill">
+      <mat-label>Nombre del departamento</mat-label>
+      <input  matInput #message maxlength="256" formControlName="Descripcion" placeholder="Ejem. Computadora Dell....">
+      <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="Wide100 inputNombre" appearance="fill">
+      <mat-label>Sucursal</mat-label>
+      <mat-select 
+      formControlName="IdSucursal">
+          <mat-option [value]="1">Colonial 1</mat-option>
+          <mat-option [value]="2">Colonial 2</mat-option>
+          <mat-option [value]="3">Colonial 3</mat-option>
+          <mat-option [value]="4">Colonial 4</mat-option>
+      </mat-select>
+  </mat-form-field>
+    <button mat-raised-button color="primary">Agregar Departamento</button>
+  </form>
     </div>
