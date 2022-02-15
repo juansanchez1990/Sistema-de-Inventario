@@ -24,6 +24,7 @@ export class ColaboradoresService {
   }
 
   EnviarColaboradores(Colaborador:Colaborador[]){
+
     this.Colaboradores.next(Colaborador);
   }
 }

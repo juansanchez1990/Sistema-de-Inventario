@@ -23,6 +23,7 @@ export class AgregarColaboradorComponent implements OnInit {
   });
   ngOnInit() {
     this.ObtenerDepartamentos();
+    this.RecibirColaboradores();
     this.idEmpleado =Number(this.rutaActiva.snapshot.params.parametro)
     if(this.idEmpleado>=1){
       this.ShowDataEdit=true
@@ -75,6 +76,7 @@ ObtenerDepartamentos(){
 
   RecibirColaboradores(){
     this.ColabServicio.ObtenerColaboradores().subscribe(colaborador=>{
+    
       this.ColabServicio.EnviarColaboradores(colaborador);
     })
   }

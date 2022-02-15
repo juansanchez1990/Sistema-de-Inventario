@@ -9,6 +9,9 @@ import { ListaColaboradoresDeptoComponent } from './components/lista-colaborador
 import { AsignarEquipoComponent } from './components/asignar-equipo/asignar-equipo.component';
 import { HistorialComponent } from './components/historial/historial.component';
 import { EquiposAsignadosComponent } from './components/equipos-asignados/equipos-asignados.component';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ActivosService } from './servicios/activos.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,9 +24,12 @@ import { EquiposAsignadosComponent } from './components/equipos-asignados/equipo
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     ActivosRoutingModule, 
    SharedModule,
-   MaterialModule 
-  ]
+   MaterialModule, 
+   ToastrModule.forRoot()
+  ],
+  providers: [ActivosService, ToastrService]
 })
 export class ActivosModule { }

@@ -12,7 +12,10 @@ export class ColaboradoresComponent implements OnInit {
   constructor(private ColabServicio:ColaboradoresService) { }
 
   ngOnInit() {
+
     this.ObtenerColaboradores()
+ 
+  
   }
 ObtenerColaboradores(){
 this.ColabServicio.Colaboradores.subscribe(colaborador=>{

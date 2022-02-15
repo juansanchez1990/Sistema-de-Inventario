@@ -21,50 +21,10 @@
     </mat-select>
   </mat-form-field>
 
-<div class="cardBorder m-3">
-  <div class="row">
-      <div class="col-8">
 
-          <mat-list >
-              <ul>
-                  <li><p style="font-size: medium;">Nombre: Mario Tábora</p></li>
-                  <li><p style="font-size: medium;">Departamento: Sistemas</p></li>
-                  <li><p style="font-size: medium;">Activo: <span class="badge bg-success"><i class="fas fa-check"></i></span>  </p></li>              
-              </ul>
-          </mat-list>
-      </div>
-
-      <div class="col-2">
-        <button  class="Button" routerLink="AgregarColaborador/1" mat-raised-button color="primary"><i style="font-size: 50px;" class="fas fa-chevron-right"></i></button>
-      </div>
-
-  </div>
-
-          
- </div>
  
- <div class="cardBorder m-3">
-    <div class="row">
-        <div class="col-8">
-  
-            <mat-list >
-                <ul>
-                    <li><p style="font-size: medium;">Nombre: Leonor Briceño</p></li>
-                    <li><p style="font-size: medium;">Departamento: Compras</p></li>
-                    <li><p style="font-size: medium;">Activo: <span class="badge bg-danger"><i class="fas fa-times"></i></span>  </p></li>              
-                </ul>
-            </mat-list>
-        </div>
-  
-        <div class="col-2">
-          <button  class="Button" routerLink="AgregarColaborador/2" mat-raised-button color="primary"><i style="font-size: 50px;" class="fas fa-chevron-right"></i></button>
-        </div>
-  
-    </div>
-  
-            
-   </div>
- <div class="cardBorder m-3">
+
+ <div *ngFor="let colaborador of Colaboradores" class="cardBorder m-3">
     <div class="row">
         <div class="col-8">
   

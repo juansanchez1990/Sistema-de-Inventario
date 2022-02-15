@@ -10,7 +10,11 @@ export class ListaColaboradoresComponent implements OnInit {
   @Input() Colaboradores: Colaborador[] = [];
   constructor() { }
   
-  ngOnInit(): void {
+  ngOnInit() {
+    setTimeout (() => {
+     console.log('Colaboradores',this.Colaboradores)
+
+   }, 125);
   }
 
 }

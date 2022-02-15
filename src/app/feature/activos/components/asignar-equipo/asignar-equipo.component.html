@@ -9,14 +9,30 @@
         </mat-form-field>
 </form>
 </div>
-   <mat-card class="m-5">
+   <mat-card *ngFor="let equipos of Equipos" class="m-5">
     <mat-list >
         <ul>
-            <li><p style="font-size: medium;">Descripción: Laptop comercial</p></li>
-            <li><p style="font-size: medium;">Tipo: Computadora portatil</p></li>
-            <li><p style="font-size: medium;">Marca: Dell</p></li>
+            <li><p style="font-size: medium;">Descripción: {{equipos.Descripcion}}</p></li>
+             <li><p style="font-size: medium;">Tipo: {{equipos.TipoDeEquipo}}</p></li>
+            <li><p style="font-size: medium;">Marca: {{equipos.MarcaEquipo}}</p></li>
+            <li><p>Estado:
+                <span 
+                [ngStyle]="{  
+                            'background-color':equipos.Estado === 'Excelente' ? 'green' : 
+                             equipos.Estado === 'Bueno' ? 'yellow':
+                            'red' }"
+                style="font-size: medium;"
+                >{{equipos.Estado}}</span> </p></li> 
+                <li>
+                      <mat-form-field class="Inputs" appearance="fill">
+                        <mat-label>Comentario</mat-label>
+                        <input  matInput #comentario maxlength="256" >
+                        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                      </mat-form-field>
+                </li>
+
         </ul>
     </mat-list>
-    <button mat-raised-button color="primary" style="width: 100%;">Asignar Equipo</button>
+    <button (click)="AsignarEquipo(equipos)" mat-raised-button color="primary" style="width: 100%;">Asignar Equipo</button>
     
     </mat-card>
