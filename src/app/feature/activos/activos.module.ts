@@ -12,6 +12,8 @@ import { EquiposAsignadosComponent } from './components/equipos-asignados/equipo
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { ActivosService } from './servicios/activos.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BuscarReferenciaPipe } from './pipes/buscar-referencia.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,12 +22,14 @@ import { HttpClientModule } from '@angular/common/http';
     ListaColaboradoresDeptoComponent,
     AsignarEquipoComponent,
     HistorialComponent,
-    EquiposAsignadosComponent
+    EquiposAsignadosComponent,
+    BuscarReferenciaPipe
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     ActivosRoutingModule, 
+    FormsModule,
    SharedModule,
    MaterialModule, 
    ToastrModule.forRoot()

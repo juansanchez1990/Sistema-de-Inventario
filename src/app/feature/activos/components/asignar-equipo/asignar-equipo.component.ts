@@ -10,7 +10,7 @@ import { ActivosService } from '../../servicios/activos.service';
 })
 export class AsignarEquipoComponent implements OnInit {
   Equipos:Equipo[]=[]
- 
+  buscarEqipo:string=''
   @ViewChild('comentario') comentario!:ElementRef;
   constructor(private ActivoS:ActivosService) {
    }

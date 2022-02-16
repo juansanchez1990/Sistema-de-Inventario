@@ -32,11 +32,11 @@ ObtenerDepartamentos(){
 
    this.DeptoServicio.BorrarDepartamento(DepartamentoDelete).subscribe(data=>{
      if (Departamento.Activo===false){
-       this.toastr.success('¡Hecho!', 'Tipo de equipo desactivado');
+       this.toastr.success('¡Hecho!', 'Departamento desactivado');
      }
      else {
 
-       this.toastr.success('¡Hecho!', 'Tipo de equipo activado');
+       this.toastr.success('¡Hecho!', 'Departamento activado');
      }
      this.DeptoServicio.ObtenerDepartamentos().subscribe(departamento=>{
       this.DeptoServicio.EnviarDepartamentos(departamento);

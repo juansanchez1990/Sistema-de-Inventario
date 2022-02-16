@@ -4,12 +4,15 @@
     <form >
         <mat-form-field class="Wide100" appearance="fill">
           <mat-label># de referencia del equipo</mat-label>
-          <input matInput #message maxlength="256" >
-          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+          <input matInput placeholder="Buscar por referencia"
+          #BuscarReferencia 
+          id="search" 
+          [(ngModel)]="buscarEqipo" 
+          name="buscarEqipo">  
         </mat-form-field>
 </form>
 </div>
-   <mat-card *ngFor="let equipos of Equipos" class="m-5">
+   <mat-card *ngFor="let equipos of Equipos | buscarReferencia: buscarEqipo" class="m-5">
     <mat-list >
         <ul>
             <li><p style="font-size: medium;">Descripción: {{equipos.Descripcion}}</p></li>
@@ -27,7 +30,7 @@
                       <mat-form-field class="Inputs" appearance="fill">
                         <mat-label>Comentario</mat-label>
                         <input  matInput #comentario maxlength="256" >
-                        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                  
                       </mat-form-field>
                 </li>
 
