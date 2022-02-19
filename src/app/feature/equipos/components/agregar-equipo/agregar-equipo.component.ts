@@ -102,7 +102,8 @@ export class AgregarEquipoComponent implements OnInit {
     IdTipo: this.EquipoForm.value['TipoDeEquipo'],
     IdMarca: this.EquipoForm.value['MarcaEquipo'],
     Estado:this.EquipoForm.value['Estado'],
-    Activo:this.checked
+    Activo:this.checked,
+    Asignado:false
   }
   if (this.ShowDataEdit===false){
 

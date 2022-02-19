@@ -6,5 +6,5 @@ export interface Equipo {
     IdMarca:number,
     CodigoReferencia:string,
     Estado:number
-
+    Asignado:boolean
 }

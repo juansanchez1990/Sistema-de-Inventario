@@ -12,13 +12,26 @@
         </mat-form-field>
 </form>
 </div>
+<div class="m-1 row">
+  <h3 style="font-weight:bold;">Estados:</h3>
+  <div class="col-3 text-center">
+    <p>Excelente</p> <span class="badge bg-success"><i class="fa fa-check"></i></span>
+  </div>
+  <div class="col-3 text-center">
+    <p>Regular</p> <span  class="badge bg-warning"><i class="fa fa-minus"></i></span>
+  </div>
+  <div class="col-3 text-center">
+    <p>Malo</p> <span class="badge bg-danger"><i class="fa fa-times"></i></span>
+  </div>
+</div>
    <mat-card *ngFor="let equipos of Equipos | buscarReferencia: buscarEqipo" class="m-5">
+
     <mat-list >
         <ul>
             <li><p style="font-size: medium;">Descripción: {{equipos.Descripcion}}</p></li>
              <li><p style="font-size: medium;">Tipo: {{equipos.TipoDeEquipo}}</p></li>
             <li><p style="font-size: medium;">Marca: {{equipos.MarcaEquipo}}</p></li>
-            <li><p>Estado:
+            <!-- <li><p>Estado:
                 <span 
                 [ngStyle]="{  
                             'background-color':equipos.Estado === 'Excelente' ? 'green' : 
@@ -26,7 +39,13 @@
                             'red' }"
                 style="font-size: medium;"
                 >{{equipos.Estado}}</span> </p></li> 
-                <li>
+            <li> -->
+            <li><p  style="font-size: medium;">Estado:
+                <span *ngIf="equipos.Estado === 'Excelente'" class="badge bg-success"><i class="fa fa-check"></i></span>
+                <span *ngIf="equipos.Estado === 'Bueno'" class="badge bg-warning"><i class="fa fa-minus"></i></span>
+                <span *ngIf="equipos.Estado === 'Mal Estado'" class="badge bg-danger"><i class="fa fa-times"></i></span>
+                </p></li> 
+            <li>
                       <mat-form-field class="Inputs" appearance="fill">
                         <mat-label>Comentario</mat-label>
                         <input  matInput #comentario maxlength="256" >
