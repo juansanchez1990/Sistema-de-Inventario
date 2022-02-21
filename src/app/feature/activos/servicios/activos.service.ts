@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Departamento } from '../../departamentos/models/departamento';
 import { Asignacion } from '../models/asignacion';
 import { Equipo } from '../models/equipo';
 
@@ -16,5 +17,9 @@ export class ActivosService {
   RegistrarAsignacion(Asignacion:Asignacion, idEquipo:number){
     return this.http.post(this.AppUrl+'RegistrarAsignacion'+'/'+idEquipo, Asignacion)
 
+  }
+
+  ObtenerDepartamentos(){
+    return this.http.get<Departamento[]>(this.AppUrl+'ObtenerDepartamentos')
   }
 }
