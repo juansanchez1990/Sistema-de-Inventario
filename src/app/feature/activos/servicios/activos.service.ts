@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Departamento } from '../../departamentos/models/departamento';
 import { Asignacion } from '../models/asignacion';
+import { ColaboradorAsignar } from '../models/colaborarorAsignar';
 import { Equipo } from '../models/equipo';
 
 @Injectable({
@@ -21,5 +22,9 @@ export class ActivosService {
 
   ObtenerDepartamentos(){
     return this.http.get<Departamento[]>(this.AppUrl+'ObtenerDepartamentos')
+  }
+
+  ObtenerColaboradoresAsignar(idDepartamento:number){
+    return this.http.get<ColaboradorAsignar[]>(this.AppUrl+'ColaboradoresAsignacion'+'/'+idDepartamento)
   }
 }
