@@ -96,33 +96,40 @@ export class AgregarEquipoComponent implements OnInit {
 
 
  RegistrarEquipo(){
-  let Equipo:Equipo={
-    Descripcion:this.EquipoForm.value['Descripcion'],
-    CodigoReferencia:this.EquipoForm.value['CodigoReferencia'],
-    IdTipo: this.EquipoForm.value['TipoDeEquipo'],
-    IdMarca: this.EquipoForm.value['MarcaEquipo'],
-    Estado:this.EquipoForm.value['Estado'],
-    Activo:this.checked,
-    Asignado:false
-  }
-  if (this.ShowDataEdit===false){
+   if (this.EquipoForm.valid){
 
-    this.EquipoServicio.GuardarEquipo(Equipo).subscribe(data=>{
-      this.toastr.success('¡Hecho!', 'Equipo Registrado');
-      this.ObtenerEquipos()
-      this.EquipoForm.reset();
-  
-    })
-  }
+     let Equipo:Equipo={
+       Descripcion:this.EquipoForm.value['Descripcion'],
+       CodigoReferencia:this.EquipoForm.value['CodigoReferencia'],
+       IdTipo: this.EquipoForm.value['TipoDeEquipo'],
+       IdMarca: this.EquipoForm.value['MarcaEquipo'],
+       Estado:this.EquipoForm.value['Estado'],
+       Activo:this.checked,
+       Asignado:false
+     }
+     if (this.ShowDataEdit===false){
+   
+       this.EquipoServicio.GuardarEquipo(Equipo).subscribe(data=>{
+         this.toastr.success('¡Hecho!', 'Equipo Registrado');
+         this.ObtenerEquipos()
+         this.EquipoForm.reset();
+     
+       })
+     }
+   
+     else {
+       this.EquipoServicio.ActualizarEquipo(this.idEquipo,Equipo).subscribe(data=>{
+         this.toastr.success('¡Hecho!', 'Equipo Actualizado');
+         this.ObtenerEquipos()
+         this.EquipoForm.reset();
+     
+       })
+     }
+   }
 
-  else {
-    this.EquipoServicio.ActualizarEquipo(this.idEquipo,Equipo).subscribe(data=>{
-      this.toastr.success('¡Hecho!', 'Equipo Actualizado');
-      this.ObtenerEquipos()
-      this.EquipoForm.reset();
-  
-    })
-  }
+   else {
+    this.toastr.error('¡Error!', 'Debe de ingresar todos los campos');
+   }
 
  }
 

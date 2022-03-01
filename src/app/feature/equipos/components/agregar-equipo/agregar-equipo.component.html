@@ -1,7 +1,7 @@
 <app-navbar [showMenuButton]="false" [showBackButton]="true" [showNav]="ShowDataEdit" [descripcion]="'Editar Equipo'">
 </app-navbar>
 <div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
-    <form [formGroup]="EquipoForm" (ngSubmit)="RegistrarEquipo()" *ngIf="EquipoForm">
+    <form [formGroup]="EquipoForm"  *ngIf="EquipoForm">
         <mat-form-field class="Wide100" appearance="fill">
             <mat-label>Nombre del equipo</mat-label>
             <input matInput #message maxlength="256" formControlName="Descripcion" placeholder="Ejem. Computadora Dell....">
@@ -49,10 +49,10 @@
         </mat-form-field>
         <mat-checkbox (change)="IsActivo($event)"  *ngIf="ShowDataEdit" [checked]='checked' class="mb-2" color="primary">Activo</mat-checkbox>
         <br>
-        <button class="m-1" mat-raised-button color="primary">
+        <button class="m-1" (click)="RegistrarEquipo()" mat-raised-button color="primary">
             <span *ngIf="!ShowDataEdit">Guardar</span>
             <span *ngIf="ShowDataEdit">Actualizar</span>
         </button>
-        <button class="m-1" mat-raised-button color="warn">Cancelar</button>
+        <button routerLink="/Home" class="m-1" mat-raised-button color="warn">Cancelar</button>
     </form>
 </div>
