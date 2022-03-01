@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { TipoEquipo } from '../../models/tipos-equipo';
 import { TiposEquipoService } from '../../servicios/tipos-equipo.service';
 
@@ -13,13 +14,14 @@ export class ListaEquiposComponent implements OnInit {
 
   @Input() tiposEquipo: TipoEquipo[] = [];
   @Output() borrarEquipo: EventEmitter<TipoEquipo> = new EventEmitter();
-
+  pgIndex= 2;
+  firstLastButtons= true;
   constructor() {
 
   }
 
   ngOnInit() {
-
+   
 
   }
 
@@ -31,6 +33,11 @@ export class ListaEquiposComponent implements OnInit {
      }
     this.borrarEquipo.emit(DataEnviar)
 
+  }
+
+  onChangePage(pe:PageEvent) {
+    console.log(pe.pageIndex);
+    console.log(pe.pageSize);
   }
 }
 

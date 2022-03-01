@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { LoginUsuario } from '../../models/loginUsuario';
 import { LoginService } from '../../servicios/login.service';
@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   indeterminate = false;
   usuario:LoginUsuario[]=[]
   formLogin: FormGroup = new FormGroup({
-    usuario: new FormControl(''),
-    password: new FormControl(''),
+    usuario: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
   });
   constructor(private loginService:LoginService,
               private toastr:ToastrService,
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
   submit() {
     if (this.formLogin.valid) {
-
+      console.log()
       
      try{
 
@@ -44,9 +44,12 @@ export class LoginComponent implements OnInit {
       )
      }
      catch{
-
+     
      }
 
+    }
+    else{
+      this.toastr.error('¡Error!', 'Debe de ingresar todos los campos');
     }
   }
 

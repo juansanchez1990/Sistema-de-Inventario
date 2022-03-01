@@ -11,7 +11,8 @@ import { ActivosService } from '../../servicios/activos.service';
 })
 export class AsignarEquipoComponent implements OnInit {
   Equipos:Equipo[]=[]
-  buscarEqipo:string=''
+  buscarReferencia:string=''
+  Descripcion:string=''
   idColaborador: number = 0;
   @ViewChild('comentario') comentario!:ElementRef;
   constructor(private ActivoS:ActivosService, private rutaActiva: ActivatedRoute) {

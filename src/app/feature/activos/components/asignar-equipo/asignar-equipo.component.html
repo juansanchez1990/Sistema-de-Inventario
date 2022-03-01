@@ -6,9 +6,17 @@
           <mat-label># de referencia del equipo</mat-label>
           <input matInput placeholder="Buscar por referencia"
           #BuscarReferencia 
-          id="search" 
-          [(ngModel)]="buscarEqipo" 
-          name="buscarEqipo">  
+        
+          [(ngModel)]="buscarReferencia" 
+          name="buscarReferencia">  
+        </mat-form-field>
+        <mat-form-field class="Wide100" appearance="fill">
+          <mat-label>Nombre del equipo</mat-label>
+          <input matInput placeholder="Buscar por nombre"
+          #BuscarDescripcion 
+          
+          [(ngModel)]="Descripcion" 
+          name="Descripcion">  
         </mat-form-field>
 </form>
 </div>
@@ -24,7 +32,7 @@
     <p>Malo</p> <span class="badge bg-danger"><i class="fa fa-times"></i></span>
   </div>
 </div>
-    <mat-card *ngFor="let equipos of Equipos | buscarReferencia: buscarEqipo" class="m-5">
+    <mat-card *ngFor="let equipos of Equipos | buscarReferencia: buscarReferencia | buscarDescripcion:Descripcion  " class="m-5">
 
       <mat-list >
           <ul>

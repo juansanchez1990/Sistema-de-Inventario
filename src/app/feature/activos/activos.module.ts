@@ -14,6 +14,7 @@ import { ActivosService } from './servicios/activos.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BuscarReferenciaPipe } from './pipes/buscar-referencia.pipe';
 import { FormsModule } from '@angular/forms';
+import { BuscarDescripcionPipe } from './pipes/buscar-descripcion.pipe';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     AsignarEquipoComponent,
     HistorialComponent,
     EquiposAsignadosComponent,
-    BuscarReferenciaPipe
+    BuscarReferenciaPipe,
+    BuscarDescripcionPipe
   ],
   imports: [
     CommonModule,
