@@ -11,7 +11,7 @@ import { HistorialComponent } from './components/historial/historial.component';
 import { EquiposAsignadosComponent } from './components/equipos-asignados/equipos-asignados.component';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { ActivosService } from './servicios/activos.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BuscarReferenciaPipe } from './pipes/buscar-referencia.pipe';
 import { FormsModule } from '@angular/forms';
 
@@ -28,11 +28,11 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     HttpClientModule,
-    ActivosRoutingModule, 
+    ActivosRoutingModule,
     FormsModule,
-   SharedModule,
-   MaterialModule, 
-   ToastrModule.forRoot()
+    SharedModule,
+    MaterialModule,
+    ToastrModule.forRoot()
   ],
   providers: [ActivosService, ToastrService]
 })

@@ -9,6 +9,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class MenuItemsComponent implements AfterViewInit, OnInit {
   @Output() openMenu = new EventEmitter();
+  usuario:any
   public setSidenav(sidenav: MatSidenav) {
     this.sidenav = sidenav;
 }
@@ -50,7 +51,8 @@ export class MenuItemsComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Open', this.Open)  
+    this.usuario = JSON.parse(localStorage.getItem('usuario')|| '{}');
+    console.log(this.usuario)
   }
 
   CloseSidenav(){

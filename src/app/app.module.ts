@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NavBarService } from './services/nav-bar.service';
 
 import { CoreModule } from './core/core.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule
   ],
   providers: [NavBarService],
   bootstrap: [AppComponent]

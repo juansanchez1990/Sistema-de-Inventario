@@ -3,20 +3,34 @@
 <div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
     <form class="d-flex-columns justify-content-center" >
         <mat-form-field class="Wide100" appearance="fill">
-          <mat-label># de referencia del equipo</mat-label>
-          <input matInput #message maxlength="256" >
-          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+          <mat-label>Codigo del empleado</mat-label>
+          <input matInput #codigo maxlength="256" >
+          <mat-hint align="end">{{codigo.value.length}} / 256</mat-hint>
         </mat-form-field>
-        <mat-form-field class="Wide100" appearance="fill">
+
+        <button (click)="ObtenerHistorial(codigo.value,0)"  mat-raised-button color="primary">Buscar por usuario</button>
+        <mat-form-field class="Wide100 mt-1" appearance="fill">
+
           <mat-label>Descripcion</mat-label>
-          <input matInput #message maxlength="256" >
-          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+          <input matInput #referencia maxlength="256" >
+          <mat-hint align="end">{{referencia.value.length}} / 256</mat-hint>
         </mat-form-field>
+        <button (click)="ObtenerHistorial(0,referencia.value)" mat-raised-button color="primary">Buscar por referencia</button>
 </form>
 </div>
-   <mat-card class="m-5">
-    <h1 class="text-center">Carlos Padilla</h1>
-    <button mat-raised-button color="primary" style="width: 100%;">Ver Equipo Asignado</button>
-    <mat-divider class="mt-3"></mat-divider>
-    <mat-card-subtitle class="mt-4 text-center">12/1/2022 - Actualidad</mat-card-subtitle>
-    </mat-card>
+<div *ngIf="this.Historial.length>0">
+
+  <h1  class="text-center m-5">{{Historial[0].nombre_completo}}</h1>
+     <mat-card *ngFor="let historial of Historial " class="m-5">
+      <mat-list role="list">
+        <mat-list-item role="listitem"><strong>Equipo:</strong> {{historial.Equipo}} </mat-list-item>
+        <mat-list-item role="listitem"><strong>Departamento:</strong> {{historial.Departamento}}</mat-list-item>
+        <mat-list-item role="listitem"><strong>Desde:</strong> {{historial.Fecha | date: 'dd/MM/yyyy'}}</mat-list-item>
+        <mat-list-item *ngIf="historial.FechaFinal===null" role="listitem"><strong>Hasta:</strong> Actualidad</mat-list-item>
+        <mat-list-item *ngIf="historial.FechaFinal!=null" role="listitem"><strong>Hasta:</strong> {{historial.FechaFinal | date: 'dd/MM/yyyy'}}</mat-list-item>
+      </mat-list>
+      <mat-divider class="mt-3"></mat-divider>
+   
+      </mat-card>
+</div>
+

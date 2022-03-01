@@ -4,6 +4,8 @@ import { Departamento } from '../../departamentos/models/departamento';
 import { Asignacion } from '../models/asignacion';
 import { ColaboradorAsignar } from '../models/colaborarorAsignar';
 import { Equipo } from '../models/equipo';
+import { EquipoAsignado } from '../models/equipo-asignado';
+import { HistorialAsignacion } from '../models/historial-asignacion';
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +29,17 @@ export class ActivosService {
   ObtenerColaboradoresAsignar(idDepartamento:number){
     return this.http.get<ColaboradorAsignar[]>(this.AppUrl+'ColaboradoresAsignacion'+'/'+idDepartamento)
   }
+
+  ObtenerEquipoAsignado(idColaborador:number){
+    return this.http.get<EquipoAsignado[]>(this.AppUrl+'ObtenerEquipoAsignado'+'/'+idColaborador)
+  }
+  
+  DesasignarEquipo(idAsignacion:number){
+    return this.http.put(this.AppUrl+'DesasignarEquipo'+'/'+idAsignacion,idAsignacion)
+
+  }
+
+   ObtenerHistorial(CodigoEmpleado:number, Referencia:string){
+    return this.http.get<HistorialAsignacion[]>(this.AppUrl+'ObtenerEquiposAsignadosPorUsuario'+'/'+CodigoEmpleado+'/'+Referencia)
+ }
 }

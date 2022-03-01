@@ -4,7 +4,7 @@
             <img src="assets\img\logo.png" class="rounded mx-auto d-block" alt="...">
             <mat-card-title class="my-3 text-center">Iniciar Sesión</mat-card-title>
             <mat-card-content>
-                <form class="d-flex flex-column" [formGroup]="form" (ngSubmit)="submit()">
+                <form class="d-flex flex-column" [formGroup]="formLogin">
                     <mat-form-field appearance="fill">
                         <input type="text" matInput placeholder="Usuario" formControlName="usuario">
                     </mat-form-field>
@@ -12,7 +12,7 @@
                         <input type="password" matInput placeholder="Contraseña" formControlName="password">
                     </mat-form-field>
                     <mat-checkbox class="mb-2" color="primary">Mantener sesión abierta</mat-checkbox>
-                    <button routerLink="Home" class="p-1" type="submit" mat-raised-button color="primary">Entrar</button>
+                    <button (click)="submit()" class="p-1"  mat-raised-button color="primary">Entrar</button>
                 </form>
             </mat-card-content>
         </mat-card>

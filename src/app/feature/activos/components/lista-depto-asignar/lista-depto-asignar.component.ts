@@ -12,6 +12,7 @@ export class ListaDeptoAsignarComponent implements OnInit {
   constructor(private ActivoServicio:ActivosService) { }
   Departamentos:Departamento[]=[]
   ngOnInit() {
+    
     this.ActivoServicio.ObtenerDepartamentos().subscribe(depto=>{
       this.Departamentos = depto
     })

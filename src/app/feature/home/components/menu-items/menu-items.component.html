@@ -80,7 +80,7 @@
 
     <!-- Seccion Colaboradores -->
 
-    <mat-list-item (click)="CloseSidenav()" routerLink="/RegistrarUsuario" matRipple role="listitem" style="cursor: pointer;">
+    <mat-list-item *ngIf="usuario.IdRol===1" (click)="CloseSidenav()" routerLink="/RegistrarUsuario" matRipple role="listitem" style="cursor: pointer;">
       <div class="d-flex justify-content-between w-100 align-item-center">
         <span>Registrar Usuario</span>
         <i class="fas fa-user-plus"></i>

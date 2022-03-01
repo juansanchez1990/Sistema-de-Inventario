@@ -1,17 +1,25 @@
 <app-navbar [showMenuButton]="false" [showBackButton]="true" [descripcion]="'Equipos Asignados'">
 </app-navbar>
-    <mat-card class="m-5">
-        <mat-list role="list">
-            <mat-list-item  class="text-center" role="listitem">
-               <span class="fw-bold me-2">Descripción:</span> Computadora Portátil
-            </mat-list-item>
-            <mat-list-item  class="text-center" role="listitem">
-               <span class="fw-bold me-2">Marca:</span> Dell
-            </mat-list-item>
-            <mat-list-item  class="text-center" role="listitem">
-               <span class="fw-bold me-2">Fecha de asignación:</span> 15/01/2022
-            </mat-list-item>
+<div *ngIf="Equipos.length>0">
+   <mat-card *ngFor="let equipo of Equipos" class="m-5">
+       <mat-list role="list">
+           <mat-list-item  class="text-center" role="listitem">
+              <span class="fw-bold me-2">Descripción:</span> {{equipo.Descripcion}}
+           </mat-list-item>
+           <mat-list-item  class="text-center" role="listitem">
+              <span class="fw-bold me-2">Marca:</span> {{equipo.MarcaEquipo}}
+           </mat-list-item>
+           <mat-list-item  class="text-center" role="listitem">
+              <span class="fw-bold me-2">Fecha de asignación:</span> {{equipo.FechaAsignacion | date:'mediumDate'}}
+           </mat-list-item>
            
-          </mat-list>
-    <button mat-raised-button color="warn" routerLink="../../Equipos-Asignados/2" style="width: 100%;">Desasignar Equipo</button>
-    </mat-card>
+          
+         </mat-list>
+   <button mat-raised-button color="warn" (click)="DesasignarEquipo(equipo.id)"  style="width: 100%;">Desasignar Equipo</button>
+   </mat-card>
+</div>
+<div *ngIf="Equipos.length===0">
+   <div class="alert alert-warning m-5" role="alert">
+      Este usuario no tiene equipos asignados
+    </div>
+</div>

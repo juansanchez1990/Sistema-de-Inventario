@@ -14,9 +14,9 @@
             <img class="img-fluid rounded mx-auto d-block" src="assets\img\logo.png" alt="logo">
           </div>
           <div>
-            <p style="font-family: 'Roboto', serif;
+            <p *ngIf="this.usuario" style="font-family: 'Roboto', serif;
               font-size: 30px;" class="text-center mt-3">
-              Bienvenido Mario Tabora
+              Bienvenido {{this.usuario.NombreCompleto}}
             </p>
           </div>
         </div>

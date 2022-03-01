@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { MenuItemsComponent } from './components/menu-items/menu-items.component';
+import { LoginService } from '../login/servicios/login.service';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { MenuItemsComponent } from './components/menu-items/menu-items.component
     HomeRoutingModule,
     SharedModule,
     MaterialModule
-  ]
+  ],
+  providers:[LoginService]
 })
 export class HomeModule { }

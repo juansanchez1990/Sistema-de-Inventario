@@ -12,14 +12,6 @@
   </mat-form-field>
 
 
-<mat-form-field class="Wide100 p-1" appearance="fill">
-    <mat-label>Tipo</mat-label>
-    <mat-select disableRipple>
-      <mat-option value="1">Option 1</mat-option>
-      <mat-option value="2">Option 2</mat-option>
-      <mat-option value="3">Option 3</mat-option>
-    </mat-select>
-  </mat-form-field>
 
 
  
@@ -30,9 +22,8 @@
   
             <mat-list >
                 <ul>
-                    <li><p style="font-size: medium;">Nombre: Claudia Medina</p></li>
-                    <li><p style="font-size: medium;">Departamento: Mercadeo</p></li>
-                    <li><p style="font-size: medium;">Activo: <span class="badge bg-success"><i class="fas fa-check"></i></span>  </p></li>              
+                    <li><p style="font-size: medium;">Nombre: {{colaborador.nombre_completo}}</p></li>
+                    <li><p style="font-size: medium;">Departamento: {{colaborador.Departamento}}</p></li>             
                 </ul>
             </mat-list>
         </div>
