@@ -6,5 +6,6 @@ export interface EquipoAsignado {
     FechaFinal:Date,
     Estado:string,
     Referencia:string
+    usuarioAsignador:string
 
 }

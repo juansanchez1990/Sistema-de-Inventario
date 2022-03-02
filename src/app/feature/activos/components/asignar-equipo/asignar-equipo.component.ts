@@ -18,9 +18,12 @@ export class AsignarEquipoComponent implements OnInit {
   constructor(private ActivoS:ActivosService, private rutaActiva: ActivatedRoute) {
    }
 
-  ngOnInit() {
+   usuario:any
+   ngOnInit() {
+    this.usuario = JSON.parse(localStorage.getItem('usuario')|| '{}');
+    console.log('user',this.usuario.Usuario1)
     this.idColaborador = Number(this.rutaActiva.snapshot.params.parametro)
-  this.ObtenerEquipos();
+    this.ObtenerEquipos();
   }
   ObtenerEquipos(){
     this.ActivoS.ObtenerEquipos().subscribe(equipo=>{
@@ -35,7 +38,8 @@ export class AsignarEquipoComponent implements OnInit {
       IdColaborador:this.idColaborador,
       Activo:true,
       IdEquipo:EquipoAsignado.id,
-      Comentario:valueInput 
+      Comentario:valueInput, 
+      usuarioAsignador:this.usuario.Usuario1
   }
   this.ActivoS.RegistrarAsignacion(AsignacionEquipo,EquipoAsignado.id).subscribe(asig=>{
     this.ObtenerEquipos();

@@ -3,5 +3,6 @@ export interface Asignacion {
     IdColaborador:number,
     Activo:boolean,
     IdEquipo:number,
-    Comentario:string 
+    Comentario:string ,
+    usuarioAsignador:string
 }
