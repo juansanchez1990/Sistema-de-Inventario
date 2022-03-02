@@ -2,11 +2,11 @@
     <mat-list-item *ngFor="let departamento of Departamentos"   role="listitem" >
         <div class="d-flex justify-content-between w-100 align-item-center">
             <span>{{departamento.Descripcion}}: 
-                
-                    <strong *ngIf="departamento.IdSucursal!=5">Colonial {{departamento.IdSucursal}}</strong> 
-                
-               
-                    <strong *ngIf="departamento.IdSucursal===5">Oficinas Administrativas</strong> 
+              
+                    <p class="card-text" *ngIf="departamento.IdSucursal!=5"><small class="text-muted">Colonial {{departamento.IdSucursal}}</small></p>
+
+                    <p class="card-text" *ngIf="departamento.IdSucursal===5"><small class="text-muted">Oficinas Administrativas</small></p>
+
               
             </span>
             <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
@@ -21,8 +21,8 @@
 
 
 
-<mat-paginator [length]="100"
+<!-- <mat-paginator [length]="100"
               [pageSize]="10"
               [pageSizeOptions]="[5, 10, 25, 100]"
               aria-label="Select page">
-</mat-paginator>
+</mat-paginator> -->

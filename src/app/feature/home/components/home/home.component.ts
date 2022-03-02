@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     usuario:any
   ngOnInit() {
    this.usuario = JSON.parse(localStorage.getItem('usuario')|| '{}');
-   console.log(this.usuario)
+ 
   }
 
 }

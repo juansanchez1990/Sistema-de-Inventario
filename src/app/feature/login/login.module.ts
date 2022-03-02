@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { MaterialModule } from 'src/app/material/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { LoginService } from './servicios/login.service';
@@ -20,6 +20,7 @@ import { LoginService } from './servicios/login.service';
     LoginRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    FormsModule,
     ToastrModule.forRoot()
   ],
   providers: [LoginService, ToastrService]

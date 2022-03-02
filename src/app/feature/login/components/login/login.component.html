@@ -6,12 +6,12 @@
             <mat-card-content>
                 <form class="d-flex flex-column" [formGroup]="formLogin">
                     <mat-form-field appearance="fill">
-                        <input type="text" matInput placeholder="Usuario" formControlName="usuario">
+                        <input type="text" matInput placeholder="Usuario" [(ngModel)]="usuarioRecord" name="usuarioRecord" formControlName="usuario">
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <input type="password" matInput placeholder="Contraseña" formControlName="password">
                     </mat-form-field>
-                    <mat-checkbox class="mb-2" color="primary">Mantener sesión abierta</mat-checkbox>
+                    <mat-checkbox class="mb-2" (change)="checkCheckBoxvalue($event)"  color="primary">Recordar Usuario</mat-checkbox>
                     <button (click)="submit()" class="p-1"  mat-raised-button color="primary">Entrar</button>
                 </form>
             </mat-card-content>

@@ -52,7 +52,7 @@ export class MenuItemsComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.usuario = JSON.parse(localStorage.getItem('usuario')|| '{}');
-    console.log(this.usuario)
+
   }
 
   CloseSidenav(){

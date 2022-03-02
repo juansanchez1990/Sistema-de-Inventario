@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   checked = false;
   indeterminate = false;
-  usuario:LoginUsuario[]=[]
+  usuarioRecord:string=""
+  usuario:any[]=[]
   formLogin: FormGroup = new FormGroup({
     usuario: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
@@ -22,6 +23,9 @@ export class LoginComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    this.usuario =Object.entries(JSON.parse(localStorage.getItem('usuario')|| '{}'));
+    
+    
   }
   submit() {
     if (this.formLogin.valid) {
@@ -36,6 +40,7 @@ export class LoginComponent implements OnInit {
       this.loginService.InicioSesion(usuario,password).subscribe(user=>{
         this.toastr.success('¡Hecho!', 'Inicio de sesión exitoso');
         this.loginService.EnviarUsuario(user);
+   
         this.router.navigate(['Home']);
       }, (error:any) => {
        
@@ -52,7 +57,16 @@ export class LoginComponent implements OnInit {
       this.toastr.error('¡Error!', 'Debe de ingresar todos los campos');
     }
   }
+  checkCheckBoxvalue(event:any){
+    let checked = event.checked
+    if (checked ===true){
+       this.usuarioRecord =this.usuario[2][1]
+    }
 
+    else {
+      this.usuarioRecord=""
+    }
+ }
 
 }
 

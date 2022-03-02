@@ -7,11 +7,19 @@ import { Equipo } from '../models/equipo';
 export class BuscarReferenciaPipe implements PipeTransform {
 
   transform(Equipo: Equipo[], Referencia: any): Equipo[] {
+    // if (!Equipo || !Referencia){
+    // return Equipo
+    // }
+    // return Equipo.filter(equipo=>equipo.Referencia.toLowerCase().includes(Referencia.toLowerCase()                        
+    // )
+    // || equipo.Referencia.toLowerCase().includes(Descripcion.toLowerCase()
+    // ))
+
     if (!Equipo || !Referencia){
-    return Equipo
-    }
-    return Equipo.filter(equipo=>equipo.Referencia.toLowerCase().includes(Referencia.toLowerCase()                        
-    ))
+      return Equipo
+      }
+      return Equipo.filter(equipo=>equipo.Referencia.toLowerCase().includes(Referencia.toLowerCase()                        
+      ))
   }
 
 }
