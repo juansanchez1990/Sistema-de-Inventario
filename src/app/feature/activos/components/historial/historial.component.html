@@ -2,14 +2,14 @@
 </app-navbar>
 <div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
     <form class="d-flex-columns justify-content-center" >
-        <mat-form-field class="Wide100" appearance="fill">
+        <mat-form-field class="Wide100 mt-1" appearance="fill">
           <mat-label>Codigo del empleado</mat-label>
           <input matInput #codigo maxlength="256" >
           <mat-hint align="end">{{codigo.value.length}} / 256</mat-hint>
         </mat-form-field>
 
         <button (click)="ObtenerHistorial(codigo.value,0)"  mat-raised-button color="primary">Buscar por usuario</button>
-        <mat-form-field class="Wide100 mt-1" appearance="fill">
+        <mat-form-field class="Wide100 mt-3" appearance="fill">
 
           <mat-label>Descripcion</mat-label>
           <input matInput #referencia maxlength="256" >
