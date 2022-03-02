@@ -15,6 +15,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BuscarReferenciaPipe } from './pipes/buscar-referencia.pipe';
 import { FormsModule } from '@angular/forms';
 import { BuscarDescripcionPipe } from './pipes/buscar-descripcion.pipe';
+import { BuscarColaboradorPipe } from './pipes/buscar-colaborador.pipe';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { BuscarDescripcionPipe } from './pipes/buscar-descripcion.pipe';
     HistorialComponent,
     EquiposAsignadosComponent,
     BuscarReferenciaPipe,
-    BuscarDescripcionPipe
+    BuscarDescripcionPipe,
+    BuscarColaboradorPipe
   ],
   imports: [
     CommonModule,

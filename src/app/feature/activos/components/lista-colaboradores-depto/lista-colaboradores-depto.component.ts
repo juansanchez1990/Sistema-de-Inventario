@@ -13,6 +13,7 @@ export class ListaColaboradoresDeptoComponent implements OnInit {
   constructor(private ActivoServicio:ActivosService,  private rutaActiva: ActivatedRoute) { }
   ColaboradoresPorDepto:ColaboradorAsignar[]=[]
   idDepto: number = 0;
+  nombreBuscar=""
   ngOnInit() {
     this.idDepto = Number(this.rutaActiva.snapshot.params.parametro)
     this.ObtenerColaboradoresDepto();

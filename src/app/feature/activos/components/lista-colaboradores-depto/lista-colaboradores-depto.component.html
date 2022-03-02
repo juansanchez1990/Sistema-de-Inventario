@@ -1,6 +1,20 @@
 <app-navbar [showMenuButton]="false" [showBackButton]="true" [descripcion]="'Colaboradores'">
 </app-navbar>
-<mat-card *ngFor="let Colaborador of ColaboradoresPorDepto" class="m-5">
+<mat-form-field  class="Wide100 p-1 m-1 " floatLabel="never">
+    <div class="row">
+        <div class="col-10">
+            <input matInput placeholder="Buscar por nombre"
+            #BuscarColaborador 
+            id="search" 
+            [(ngModel)]="nombreBuscar" 
+            name="nombreBuscar">             
+        </div>
+        <div class="col-2">
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
+  </mat-form-field>
+<mat-card *ngFor="let Colaborador of ColaboradoresPorDepto | buscarColaborador: nombreBuscar" class="m-5">
 <h2 class="text-center">{{Colaborador.nombre_completo}}</h2>
 <button mat-raised-button color="primary" routerLink="../../Equipos-Asignados/{{Colaborador.id}}" style="width: 100%;">Ver equipo asignado</button>
 <button mat-raised-button class="mt-2" routerLink="../../Asignar-Equipo/{{Colaborador.id}}"  style="width: 100%; background-color: green; color: white;">Asignar equipo</button>
