@@ -23,11 +23,11 @@
   <h1  class="text-center m-5">{{Historial[0].nombre_completo}}</h1>
      <mat-card *ngFor="let historial of Historial " class="m-5">
       <mat-list role="list">
-        <mat-list-item role="listitem"><strong>Equipo:</strong> {{historial.Equipo}} </mat-list-item>
-        <mat-list-item role="listitem"><strong>Departamento:</strong> {{historial.Departamento}}</mat-list-item>
-        <mat-list-item role="listitem"><strong>Desde:</strong> {{historial.Fecha | date: 'dd/MM/yyyy'}}</mat-list-item>
-        <mat-list-item *ngIf="historial.FechaFinal===null" role="listitem"><strong>Hasta:</strong> Actualidad</mat-list-item>
-        <mat-list-item *ngIf="historial.FechaFinal!=null" role="listitem"><strong>Hasta:</strong> {{historial.FechaFinal | date: 'dd/MM/yyyy'}}</mat-list-item>
+        <mat-list-item role="listitem"><span class="p-1"><strong>Equipo:</strong> </span>{{historial.Equipo}} </mat-list-item>
+        <mat-list-item role="listitem"><span class="p-1"><strong>Departamento:</strong></span>{{historial.Departamento}}</mat-list-item>
+        <mat-list-item role="listitem"><span class="p-1"><strong>Desde:</strong></span>{{historial.Fecha | date: 'dd/MM/yyyy'}}</mat-list-item>
+        <mat-list-item *ngIf="historial.FechaFinal===null" role="listitem"><span class="p-1"><strong>Hasta:</strong></span>Actualidad</mat-list-item>
+        <mat-list-item *ngIf="historial.FechaFinal!=null" role="listitem"><span class="p-1"><strong>Hasta:</strong> </span>{{historial.FechaFinal | date: 'dd/MM/yyyy'}}</mat-list-item>
       </mat-list>
       <mat-divider class="mt-3"></mat-divider>
    
