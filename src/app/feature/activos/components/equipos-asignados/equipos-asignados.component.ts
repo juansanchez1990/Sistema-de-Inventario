@@ -21,7 +21,7 @@ export class EquiposAsignadosComponent implements OnInit {
   obtenerEquipoAsignado(){
     this.ActivoService.ObtenerEquipoAsignado(this.idColaborador).subscribe(equipo=>{
       this.Equipos = equipo;
-      console.log(this.Equipos)
+
     })
   }
 

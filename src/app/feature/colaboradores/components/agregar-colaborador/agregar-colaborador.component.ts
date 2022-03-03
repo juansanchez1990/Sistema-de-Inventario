@@ -26,6 +26,7 @@ export class AgregarColaboradorComponent implements OnInit {
     IdDepartamento: new FormControl('', Validators.required),
   });
   ngOnInit() {
+  
     this.ObtenerDepartamentos();
     this.RecibirColaboradores();
     this.idEmpleado =Number(this.rutaActiva.snapshot.params.parametro)
@@ -45,7 +46,7 @@ ObtenerDepartamentos(){
 buscarColaborador(){
   let CodigoEmpleado=this.ColaboradorForm.value['CodigoEmpleado']
   this.ColabServicio.buscarColaborador(CodigoEmpleado).subscribe(resp=>{
-    console.log('colaborador', resp.length)
+  
     if( resp.length===0){
       this.toastr.error('¡Error!', 'No existe colaborador con ese codigo de empleado');
       }
@@ -83,7 +84,7 @@ buscarColaborador(){
         }, 
         
         (error:any) => {
-          console.log(error)
+       
         this.toastr.error('¡Error!', `${error.error.Message}`);
    
       }

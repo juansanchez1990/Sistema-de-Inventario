@@ -17,11 +17,12 @@ export class ListaColaboradoresDeptoComponent implements OnInit {
   ngOnInit() {
     this.idDepto = Number(this.rutaActiva.snapshot.params.parametro)
     this.ObtenerColaboradoresDepto();
-    console.log('idDepto', this.idDepto)
+
   }
 ObtenerColaboradoresDepto(){
   this.ActivoServicio.ObtenerColaboradoresAsignar(this.idDepto).subscribe(colab=>{
     this.ColaboradoresPorDepto = colab;
+    this.ActivoServicio.EnviarColaboradores(colab)
   })
 }
 }

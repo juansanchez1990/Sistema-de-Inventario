@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Colaborador } from '../../colaboradores/models/colaborador';
 import { Departamento } from '../../departamentos/models/departamento';
 import { Asignacion } from '../models/asignacion';
 import { ColaboradorAsignar } from '../models/colaborarorAsignar';
@@ -12,6 +14,7 @@ import { HistorialAsignacion } from '../models/historial-asignacion';
 })
 export class ActivosService {
   private AppUrl= 'https://localhost:44356/api/Inventario/';
+  Colaboradores= new BehaviorSubject<ColaboradorAsignar[]>([]);
   constructor(private http: HttpClient) { }
   ObtenerEquipos(){
     return this.http.get<Equipo[]>(this.AppUrl+'ObtenerEquiposParaAsignacion')
@@ -42,4 +45,9 @@ export class ActivosService {
    ObtenerHistorial(CodigoEmpleado:number, Referencia:string){
     return this.http.get<HistorialAsignacion[]>(this.AppUrl+'ObtenerEquiposAsignadosPorUsuario'+'/'+CodigoEmpleado+'/'+Referencia)
  }
+
+ EnviarColaboradores(Colaborador:ColaboradorAsignar[]){
+
+  this.Colaboradores.next(Colaborador);
+}
 }
