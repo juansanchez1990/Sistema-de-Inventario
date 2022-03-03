@@ -1,7 +1,7 @@
 <app-navbar [showMenuButton]="false" [showBackButton]="true" [showNav]="ShowDataEdit" [descripcion]="'Editar Empleado'">
 </app-navbar>
 <div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
-    <form [formGroup]="ColaboradorForm" (ngSubmit)="RegistrarColaborador()"  >
+    <form [formGroup]="ColaboradorForm">
 
         <mat-form-field class="Inputs" appearance="fill">
           <mat-label>Codigo del empleado</mat-label>
@@ -22,10 +22,12 @@
 
         <mat-checkbox *ngIf="ShowDataEdit"  class="mb-2" color="primary">Desactivar usuario</mat-checkbox>
 
-        <button mat-raised-button class="m-3" color="primary">
-          <span *ngIf="!ShowDataEdit">Agregar empleado</span> 
-          <span *ngIf="ShowDataEdit">Guardar Cambios</span> 
-          </button>
+        <button *ngIf="!ShowDataEdit" (click)="buscarColaborador()" mat-raised-button class="m-3" color="primary">
+          <span>Agregar empleado</span> 
+       </button>
+        <button *ngIf="ShowDataEdit" (click)="RegistrarColaborador()" mat-raised-button class="m-3" color="primary">
+          <span >Guardar Cambios</span> 
+       </button>
           <button *ngIf="!ShowDataEdit" mat-raised-button class="m-3" routerLink="/Home"  color="warn">Cancelar</button>
 
       </form>

@@ -27,4 +27,10 @@ export class ColaboradoresService {
 
     this.Colaboradores.next(Colaborador);
   }
+
+  buscarColaborador(codigo:string){
+
+    return this.http.get<Colaborador[]>(this.AppUrl+'BuscarColaborador'+'/'+ codigo)
+
+  }
 }

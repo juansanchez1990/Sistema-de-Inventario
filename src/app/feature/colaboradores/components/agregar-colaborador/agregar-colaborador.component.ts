@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Departamento } from 'src/app/feature/departamentos/models/departamento';
 import { Colaborador } from '../../models/colaborador';
 import { ColaboradoresService } from '../../servicios/colaboradores.service';
+import { MatDialog } from "@angular/material/dialog";
+import { DialogoConfirmacionComponent } from 'src/app/shared/components/dialogo-confirmacion/dialogo-confirmacion.component';
 @Component({
   selector: 'app-agregar-colaborador',
   templateUrl: './agregar-colaborador.component.html',
@@ -16,7 +18,9 @@ export class AgregarColaboradorComponent implements OnInit {
   Departamentos:Departamento[]=[]
   constructor(private rutaActiva: ActivatedRoute,
               private toastr:ToastrService,
-              private ColabServicio:ColaboradoresService) { }
+              private ColabServicio:ColaboradoresService,
+              public dialogo: MatDialog
+              ) { }
   ColaboradorForm = new FormGroup({
     CodigoEmpleado: new FormControl('', Validators.required),
     IdDepartamento: new FormControl('', Validators.required),
@@ -37,6 +41,32 @@ ObtenerDepartamentos(){
 
   })
 }
+
+buscarColaborador(){
+  let CodigoEmpleado=this.ColaboradorForm.value['CodigoEmpleado']
+  this.ColabServicio.buscarColaborador(CodigoEmpleado).subscribe(resp=>{
+    console.log('colaborador', resp.length)
+    if( resp.length===0){
+      this.toastr.error('¡Error!', 'No existe colaborador con ese codigo de empleado');
+      }
+    else {
+      this.dialogo
+      .open(DialogoConfirmacionComponent, {
+        data: `El colaborador es ${resp[0].nombre_completo}, ¿desea agregarlo(a)?`
+      })
+      .afterClosed()
+      .subscribe((confirmado: Boolean) => {
+        if (confirmado) {
+          this.RegistrarColaborador();
+        } else {
+      
+        }
+      });
+
+
+    }
+  })
+}
   RegistrarColaborador(){
   
     if (this.ColaboradorForm.valid) {
@@ -46,11 +76,9 @@ ObtenerDepartamentos(){
           CodigoEmpleado:this.ColaboradorForm.value['CodigoEmpleado'],
           Activo:true,
           IdDepartamento:this.ColaboradorForm.value['IdDepartamento'] 
-        }
-       
+        } 
         this.ColabServicio.RegistrarDepartamento(Colaborador).subscribe(data=>{  
           this.toastr.success('¡Hecho!', 'Colaborador registrado');
-          // this.RecibirDepartamentos();
           this.ColaboradorForm.reset();
         }, 
         
