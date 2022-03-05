@@ -3,6 +3,6 @@ export interface Colaborador {
     CodigoEmpleado:number,
     IdDepartamento:number,
     Activo:boolean,
-    nombre_completo?:string
+    nombre_completo:string 
     Departamento?:string
 }

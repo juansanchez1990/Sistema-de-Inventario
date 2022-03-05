@@ -7,6 +7,7 @@ import { Departamento } from '../../models/departamento';
   styleUrls: ['./lista-depto.component.scss']
 })
 export class ListaDeptoComponent implements OnInit {
+  NombreABuscar!:string;
   @Input() Departamentos: Departamento[] = [];
   @Output() borrarDepartamento: EventEmitter<Departamento> = new EventEmitter();
   constructor() { }

@@ -7,6 +7,7 @@ import { Colaborador } from '../../models/colaborador';
 import { ColaboradoresService } from '../../servicios/colaboradores.service';
 import { MatDialog } from "@angular/material/dialog";
 import { DialogoConfirmacionComponent } from 'src/app/shared/components/dialogo-confirmacion/dialogo-confirmacion.component';
+import { DepartamentoColaborador } from '../../models/DepartamentoColaboradores';
 @Component({
   selector: 'app-agregar-colaborador',
   templateUrl: './agregar-colaborador.component.html',
@@ -15,31 +16,44 @@ import { DialogoConfirmacionComponent } from 'src/app/shared/components/dialogo-
 export class AgregarColaboradorComponent implements OnInit {
   idEmpleado:number=0;
   ShowDataEdit:boolean=false
-  Departamentos:Departamento[]=[]
+  Departamentos:DepartamentoColaborador[]=[]
+  ColaboradorForm!:FormGroup
   constructor(private rutaActiva: ActivatedRoute,
               private toastr:ToastrService,
               private ColabServicio:ColaboradoresService,
               public dialogo: MatDialog
               ) { }
-  ColaboradorForm = new FormGroup({
-    CodigoEmpleado: new FormControl('', Validators.required),
-    IdDepartamento: new FormControl('', Validators.required),
-  });
+ 
   ngOnInit() {
   
     this.ObtenerDepartamentos();
     this.RecibirColaboradores();
     this.idEmpleado =Number(this.rutaActiva.snapshot.params.parametro)
+   
     if(this.idEmpleado>=1){
+      this.ColabServicio.ObtenerColaboradoresPorId(this.idEmpleado).subscribe(colab=>{
+     
+        this.ColaboradorForm = new FormGroup({
+          CodigoEmpleado: new FormControl(colab[0].CodigoEmpleado, Validators.required),
+          IdDepartamento: new FormControl(colab[0].IdDepartamento, Validators.required),
+        });
+      })
       this.ShowDataEdit=true
+    
+
+    }
+    else {
+        this.ColaboradorForm = new FormGroup({
+        CodigoEmpleado: new FormControl('', Validators.required),
+        IdDepartamento: new FormControl('', Validators.required),
+  });
     }
 
   }
 
 ObtenerDepartamentos(){
-  this.ColabServicio.ObtenerDepartamentos().subscribe(depto=>{
-    this.Departamentos =depto
-
+  this.ColabServicio.ObtenerSucursales().subscribe(depto=>{
+   this.Departamentos = depto;
   })
 }
 
@@ -76,19 +90,32 @@ buscarColaborador(){
         let Colaborador:Colaborador={
           CodigoEmpleado:this.ColaboradorForm.value['CodigoEmpleado'],
           Activo:true,
-          IdDepartamento:this.ColaboradorForm.value['IdDepartamento'] 
-        } 
-        this.ColabServicio.RegistrarDepartamento(Colaborador).subscribe(data=>{  
-          this.toastr.success('¡Hecho!', 'Colaborador registrado');
-          this.ColaboradorForm.reset();
-        }, 
+          IdDepartamento:this.ColaboradorForm.value['IdDepartamento'], 
+          nombre_completo:''
+        }
         
-        (error:any) => {
-       
-        this.toastr.error('¡Error!', `${error.error.Message}`);
-   
-      }
-       )
+        if (this.ShowDataEdit===false){
+
+          this.ColabServicio.RegistrarDepartamento(Colaborador).subscribe(data=>{  
+            this.toastr.success('¡Hecho!', 'Colaborador registrado');
+            
+          }, 
+          
+          (error:any) => {
+         
+          this.toastr.error('¡Error!', `${error.error.Message}`);
+     
+        }
+         )
+        }
+
+        else{
+        
+          this.ColabServicio.ActualizarColaborador(this.idEmpleado,Colaborador).subscribe(resp=>{
+            this.toastr.success('¡Hecho!', 'Colaborador actualizado');
+          })
+
+        }
     
       }
   

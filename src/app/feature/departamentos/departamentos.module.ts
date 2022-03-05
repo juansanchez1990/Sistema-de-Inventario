@@ -9,15 +9,17 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { DepartamentoService } from './servicios/departamento.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BuscarDeptoPipe } from './pipes/buscar-depto.pipe';
 
 
 @NgModule({
   declarations: [
     AgregarDeptoComponent,
     ListaDeptoComponent,
-    DepartamentosComponent
+    DepartamentosComponent,
+    BuscarDeptoPipe
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     DepartamentosRoutingModule,
     SharedModule,
     MaterialModule,
+    FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot()
   ],

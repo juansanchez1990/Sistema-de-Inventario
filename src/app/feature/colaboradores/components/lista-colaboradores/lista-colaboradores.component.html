@@ -1,7 +1,11 @@
 <mat-form-field  class="Wide100 p-1 m-1" floatLabel="never">
     <div class="row">
         <div class="col-10">
-            <input matInput placeholder="Buscar"> 
+            <input matInput placeholder="Buscar por nombre"
+            #BuscarEquipo 
+            id="search" 
+            [(ngModel)]="NombreABuscar" 
+            name="NombreABuscar"> 
 
         </div>
         <div class="col-2">
@@ -16,7 +20,7 @@
 
  
 
- <div *ngFor="let colaborador of Colaboradores" class="cardBorder m-3">
+ <div *ngFor="let colaborador of Colaboradores | buscarColaborador:NombreABuscar " class="cardBorder m-3">
     <div class="row">
         <div class="col-8">
   
@@ -29,7 +33,7 @@
         </div>
   
         <div class="col-2">
-          <button  class="Button" routerLink="AgregarColaborador/3" mat-raised-button color="primary"><i style="font-size: 50px;" class="fas fa-chevron-right"></i></button>
+          <button  class="Button" routerLink="AgregarColaborador/{{colaborador.id}}" mat-raised-button color="primary"><i style="font-size: 50px;" class="fas fa-chevron-right"></i></button>
         </div>
   
     </div>

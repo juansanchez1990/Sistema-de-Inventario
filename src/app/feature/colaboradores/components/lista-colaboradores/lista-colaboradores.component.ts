@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Departamento } from 'src/app/feature/departamentos/models/departamento';
 import { Colaborador } from '../../models/colaborador';
+import { DepartamentoColaborador } from '../../models/DepartamentoColaboradores';
 import { ColaboradoresService } from '../../servicios/colaboradores.service';
 
 @Component({
@@ -10,8 +11,9 @@ import { ColaboradoresService } from '../../servicios/colaboradores.service';
 })
 export class ListaColaboradoresComponent implements OnInit {
   @Input() Colaboradores: Colaborador[] = [];
-  Departamentos:Departamento[]=[]
+  Departamentos:DepartamentoColaborador[]=[]
   DeptoID:number=0
+  NombreABuscar:string=''
   constructor(private ColabServicio:ColaboradoresService) { }
   
   ngOnInit() {
@@ -23,7 +25,7 @@ export class ListaColaboradoresComponent implements OnInit {
   }
 
   obtenerDepartamentos(){
-    this.ColabServicio.ObtenerDepartamentos().subscribe(depto=>{
+    this.ColabServicio.ObtenerSucursales().subscribe(depto=>{
       this.Departamentos=depto;
     })
   }

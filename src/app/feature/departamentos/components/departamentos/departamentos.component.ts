@@ -10,6 +10,7 @@ import { DepartamentoService } from '../../servicios/departamento.service';
 })
 export class DepartamentosComponent implements OnInit {
   ListaDepartamentos:Departamento[]=[]
+  
   constructor(private DeptoServicio:DepartamentoService,
               private toastr:ToastrService) { }
 

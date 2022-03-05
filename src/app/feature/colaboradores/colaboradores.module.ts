@@ -9,21 +9,24 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { ColaboradoresService } from './servicios/colaboradores.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BuscarColaboradorPipe } from './pipes/buscar-colaborador.pipe';
 
 
 @NgModule({
   declarations: [
     ColaboradoresComponent,
     AgregarColaboradorComponent,
-    ListaColaboradoresComponent
+    ListaColaboradoresComponent,
+    BuscarColaboradorPipe
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
     ColaboradoresRoutingModule,
+    FormsModule,
     SharedModule,
     MaterialModule,
     ToastrModule.forRoot()

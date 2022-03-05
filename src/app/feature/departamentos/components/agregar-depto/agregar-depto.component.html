@@ -2,7 +2,7 @@
   <form [formGroup]="DepartamentoForm" (ngSubmit)="RegistrarDepartamento()" >
     <mat-form-field class="inputNombre" appearance="fill">
       <mat-label>Nombre del departamento</mat-label>
-      <input  matInput #message maxlength="256" formControlName="Descripcion" placeholder="Ejem. Computadora Dell....">
+      <input  matInput #message maxlength="256" formControlName="Descripcion" >
       <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
     </mat-form-field>
 

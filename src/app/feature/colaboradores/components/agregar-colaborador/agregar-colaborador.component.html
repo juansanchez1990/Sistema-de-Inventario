@@ -1,11 +1,11 @@
 <app-navbar [showMenuButton]="false" [showBackButton]="true" [showNav]="ShowDataEdit" [descripcion]="'Editar Empleado'">
 </app-navbar>
 <div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
-    <form [formGroup]="ColaboradorForm">
+    <form [formGroup]="ColaboradorForm"  *ngIf="ColaboradorForm">
 
         <mat-form-field class="Inputs" appearance="fill">
           <mat-label>Codigo del empleado</mat-label>
-          <input  matInput #message maxlength="256" formControlName="CodigoEmpleado">
+          <input type="number"  matInput #message maxlength="256" formControlName="CodigoEmpleado">
           <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
         </mat-form-field>
 
@@ -14,49 +14,24 @@
             <mat-select  
             formControlName="IdDepartamento">
             <mat-option  *ngFor="let depto of Departamentos" 
-            [value]="depto.id"
-            >{{depto.Descripcion}}
+            [value]="depto.id">
+           <strong>{{depto.nombreDepartamento}}:</strong> {{depto.Descripcion}}
             </mat-option>
-        </mat-select>
+           </mat-select>
+
+       
         </mat-form-field>
-
-        <mat-checkbox *ngIf="ShowDataEdit"  class="mb-2" color="primary">Desactivar usuario</mat-checkbox>
-
         <button *ngIf="!ShowDataEdit" (click)="buscarColaborador()" mat-raised-button class="m-3" color="primary">
           <span>Agregar empleado</span> 
        </button>
         <button *ngIf="ShowDataEdit" (click)="RegistrarColaborador()" mat-raised-button class="m-3" color="primary">
           <span >Guardar Cambios</span> 
        </button>
-          <button *ngIf="!ShowDataEdit" mat-raised-button class="m-3" routerLink="/Home"  color="warn">Cancelar</button>
+          <button *ngIf="ShowDataEdit" mat-raised-button class="m-3" routerLink="/Colaboradores"  color="warn">Cancelar</button>
 
       </form>
 
      
     </div>
-    <p *ngIf="ShowDataEdit" style="font-size: large; font-weight: bold;" class="text-center">Equipo Asignado</p>
-    <div *ngIf="ShowDataEdit" class="cardBorder m-3">
-      <div class="row">
-          <div class="col-8">
-    
-              <mat-list >
-                  <ul>
-                      <li><p style="font-size: medium;">Descripción: Laptop Dell</p></li>
-                      <li><p style="font-size: medium;">Tipo: Computadora Portátil</p></li>
-                      <li><p style="font-size: medium;">Marca: Dell </p></li>
-                      <li><p style="font-size: medium;">Estado: Asignado</p></li>
-                      <li><p style="font-size: medium;">Activo</p></li>                
-                  </ul>
-              </mat-list>
-          </div>
-    
-          <div class="col-2">
-            <button  class="Button" routerLink="AgregarColaborador/1" mat-raised-button color="primary"><i style="font-size: 50px;" class="fas fa-chevron-right"></i></button>
-          </div>
-    
-      </div>
-    
-              
-     </div>
+  
    
-     <button *ngIf="ShowDataEdit" mat-raised-button class="m-3" routerLink="/Colaboradores"  color="warn">Cancelar</button>

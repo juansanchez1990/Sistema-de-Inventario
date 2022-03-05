@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Colaborador } from '../../colaboradores/models/colaborador';
 import { Departamento } from '../models/departamento';
 
 @Injectable({
@@ -24,4 +25,5 @@ export class DepartamentoService {
   BorrarDepartamento(departamento:Departamento){
     return this.http.put(this.AppUrl+'BorrarDepartamento',departamento)
   }
+ 
 }

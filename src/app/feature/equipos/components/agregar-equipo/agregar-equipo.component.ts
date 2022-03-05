@@ -112,7 +112,7 @@ export class AgregarEquipoComponent implements OnInit {
        this.EquipoServicio.GuardarEquipo(Equipo).subscribe(data=>{
          this.toastr.success('¡Hecho!', 'Equipo Registrado');
          this.ObtenerEquipos()
-         this.EquipoForm.reset();
+    
      
        })
      }
@@ -121,7 +121,7 @@ export class AgregarEquipoComponent implements OnInit {
        this.EquipoServicio.ActualizarEquipo(this.idEquipo,Equipo).subscribe(data=>{
          this.toastr.success('¡Hecho!', 'Equipo Actualizado');
          this.ObtenerEquipos()
-         this.EquipoForm.reset();
+       
      
        })
      }
