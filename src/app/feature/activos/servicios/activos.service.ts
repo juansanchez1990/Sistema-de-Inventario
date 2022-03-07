@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Colaborador } from '../../colaboradores/models/colaborador';
 import { Departamento } from '../../departamentos/models/departamento';
+import { TipoEquipo } from '../../tipos-equipo/models/tipos-equipo';
 import { Asignacion } from '../models/asignacion';
 import { ColaboradorAsignar } from '../models/colaborarorAsignar';
 import { Equipo } from '../models/equipo';
@@ -37,14 +38,21 @@ export class ActivosService {
     return this.http.get<EquipoAsignado[]>(this.AppUrl+'ObtenerEquipoAsignado'+'/'+idColaborador)
   }
   
-  DesasignarEquipo(idAsignacion:number){
-    return this.http.put(this.AppUrl+'DesasignarEquipo'+'/'+idAsignacion,idAsignacion)
+  DesasignarEquipo(idAsignacion:number,idEquipo:number){
+    return this.http.put(this.AppUrl+'DesasignarEquipo'+'/'+idAsignacion+'/'+idEquipo,idAsignacion)
 
   }
 
    ObtenerHistorial(CodigoEmpleado:number, Referencia:string){
     return this.http.get<HistorialAsignacion[]>(this.AppUrl+'ObtenerEquiposAsignadosPorUsuario'+'/'+CodigoEmpleado+'/'+Referencia)
  }
+
+ ObtenerTipoEquipo(){
+  return this.http.get<TipoEquipo[]>(this.AppUrl+'TiposEquipos')
+}
+ ObtenerEquipoPorId(idTipo:number){
+  return this.http.get<Equipo[]>(this.AppUrl+'ObtenerEquipoPorTipo'+'/'+idTipo)
+}
 
  EnviarColaboradores(Colaborador:ColaboradorAsignar[]){
 

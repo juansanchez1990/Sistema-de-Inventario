@@ -1,6 +1,21 @@
 <app-navbar [showMenuButton]="false" [showBackButton]="true" [descripcion]="'Asignar Equipo'">
 </app-navbar>
-<div class="d-flex justify-content-center w-100 align-items-center mt-5 p-5 ">
+
+<mat-form-field class="Wide100 p-1 mt-5" appearance="fill">
+  <mat-label>Tipo</mat-label>
+  <mat-select disableRipple>
+    <mat-option
+     [value]="0" >Todos</mat-option>
+    <mat-option 
+     *ngFor="let tipo of Tipos" 
+     (click)="ObtenerTipoSeleccionado(tipo.id)"
+     [value]="tipo.id">{{tipo.Descripcion}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<div class="d-flex justify-content-center w-100 align-items-center  p-5 ">
     <form >
         <mat-form-field class="Wide100" appearance="fill">
           <mat-label># de referencia del equipo</mat-label>

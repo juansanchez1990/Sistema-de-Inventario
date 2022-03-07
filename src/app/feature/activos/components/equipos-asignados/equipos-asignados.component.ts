@@ -25,8 +25,8 @@ export class EquiposAsignadosComponent implements OnInit {
     })
   }
 
-  DesasignarEquipo(idAsignacion:number){
-    this.ActivoService.DesasignarEquipo(idAsignacion).subscribe(resp=>{
+  DesasignarEquipo(idAsignacion:number,idEquipo:number){
+    this.ActivoService.DesasignarEquipo(idAsignacion,idEquipo).subscribe(resp=>{
       this.obtenerEquipoAsignado()
     })
   }

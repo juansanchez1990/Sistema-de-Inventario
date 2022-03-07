@@ -1,5 +1,6 @@
 export interface EquipoAsignado {
     id:number,
+    idEquipo:number,
     Descripcion:string,
     MarcaEquipo:string,
     FechaAsignacion:Date,
