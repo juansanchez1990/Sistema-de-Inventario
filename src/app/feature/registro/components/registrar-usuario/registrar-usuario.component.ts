@@ -41,7 +41,7 @@ export class RegistrarUsuarioComponent implements OnInit {
           this.toastr.success('¡Hecho!', 'Usuario Registrado');
           this.RegistroForm.reset();
         }, (error:any) => {
-          console.log(error)
+          
         this.toastr.error('¡Error!', `${error.error.Message}`);
    
       }

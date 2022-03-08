@@ -143,7 +143,7 @@ export class AgregarEquipoComponent implements OnInit {
   else {
     this.checked = false;
   }
-  console.log('checked', this.checked)
+
 }
 
 }

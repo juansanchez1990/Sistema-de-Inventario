@@ -6,6 +6,7 @@ import { Departamento } from '../../departamentos/models/departamento';
 import { TipoEquipo } from '../../tipos-equipo/models/tipos-equipo';
 import { Asignacion } from '../models/asignacion';
 import { ColaboradorAsignar } from '../models/colaborarorAsignar';
+import { DeptoSucursal } from '../models/deptoSucursal';
 import { Equipo } from '../models/equipo';
 import { EquipoAsignado } from '../models/equipo-asignado';
 import { HistorialAsignacion } from '../models/historial-asignacion';
@@ -26,8 +27,8 @@ export class ActivosService {
 
   }
 
-  ObtenerDepartamentos(){
-    return this.http.get<Departamento[]>(this.AppUrl+'ObtenerDepartamentos')
+  ObtenerSucursalPorDepto(){
+    return this.http.get<DeptoSucursal[]>(this.AppUrl+'ObtenerSucursales')
   }
 
   ObtenerColaboradoresAsignar(idDepartamento:number){
@@ -51,7 +52,7 @@ export class ActivosService {
   return this.http.get<TipoEquipo[]>(this.AppUrl+'TiposEquipos')
 }
  ObtenerEquipoPorId(idTipo:number){
-  return this.http.get<Equipo[]>(this.AppUrl+'ObtenerEquipoPorTipo'+'/'+idTipo)
+  return this.http.get<Equipo[]>(this.AppUrl+'getEquipoPorTipo'+'/'+idTipo)
 }
 
  EnviarColaboradores(Colaborador:ColaboradorAsignar[]){

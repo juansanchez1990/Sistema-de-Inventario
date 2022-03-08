@@ -19,7 +19,7 @@ export class ListaColaboradoresComponent implements OnInit {
   ngOnInit() {
     this.obtenerDepartamentos();
     setTimeout (() => {
-     console.log('Colaboradores',this.Colaboradores)
+
 
    }, 125);
   }

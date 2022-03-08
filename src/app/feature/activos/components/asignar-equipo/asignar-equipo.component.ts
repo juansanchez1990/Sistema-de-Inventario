@@ -47,6 +47,7 @@ export class AsignarEquipoComponent implements OnInit {
   ObtenerEquipos() {
     this.ActivoS.ObtenerEquipos().subscribe(equipo => {
       this.Equipos = equipo
+      
 
     })
   }
@@ -59,9 +60,16 @@ export class AsignarEquipoComponent implements OnInit {
   }
   
   ObtenerTipoSeleccionado(idTipo:any){
- this.ActivoS.ObtenerEquipoPorId(idTipo).subscribe(resp=>{
-   this.Equipos=resp;
- })
+
+  if(idTipo===0){
+    this.ObtenerEquipos()
+  }
+  else {
+
+    this.ActivoS.ObtenerEquipoPorId(idTipo).subscribe(resp=>{
+      this.Equipos=resp;
+    })
+  }  
   }
 
 

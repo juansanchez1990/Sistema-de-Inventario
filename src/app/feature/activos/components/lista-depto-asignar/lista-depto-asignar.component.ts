@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Departamento } from 'src/app/feature/departamentos/models/departamento';
+import { DeptoSucursal } from '../../models/deptoSucursal';
 import { ActivosService } from '../../servicios/activos.service';
 
 @Component({
@@ -10,10 +11,11 @@ import { ActivosService } from '../../servicios/activos.service';
 export class ListaDeptoAsignarComponent implements OnInit {
 
   constructor(private ActivoServicio:ActivosService) { }
-  Departamentos:Departamento[]=[]
+  NombreABuscar:string=''
+  Departamentos:DeptoSucursal[]=[]
   ngOnInit() {
     
-    this.ActivoServicio.ObtenerDepartamentos().subscribe(depto=>{
+    this.ActivoServicio.ObtenerSucursalPorDepto().subscribe(depto=>{
       this.Departamentos = depto
     })
   }

@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-
-
+import { MatDialog } from "@angular/material/dialog";
+import { DialogoConfirmacionComponent } from 'src/app/shared/components/dialogo-confirmacion/dialogo-confirmacion.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-menu-items',
   templateUrl: './menu-items.component.html',
@@ -13,7 +14,7 @@ export class MenuItemsComponent implements AfterViewInit, OnInit {
   public setSidenav(sidenav: MatSidenav) {
     this.sidenav = sidenav;
 }
-  constructor() { }
+  constructor(public dialogo: MatDialog,private router: Router) { }
 
   estados = [
     {
@@ -69,6 +70,27 @@ export class MenuItemsComponent implements AfterViewInit, OnInit {
       this.estados[number].open  =false
     }
   
+
+
+  }
+
+  SalirSesion(){
+    this.dialogo
+    .open(DialogoConfirmacionComponent, {
+      data: ` ¿Desea cerrar sesion?`
+    })
+    .afterClosed()
+    .subscribe((confirmado: Boolean) => {
+      if (confirmado) {
+        this.openMenu.emit();
+        this.router.navigate(['/Login']);
+        
+      } else {
+
+      }
+    });
+
+
 
 
   }

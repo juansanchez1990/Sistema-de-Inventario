@@ -17,6 +17,6 @@
           <mat-option [value]="5">Oficinas Administrativas</mat-option>
       </mat-select>
   </mat-form-field>
-    <button mat-raised-button color="primary">Agregar Departamento</button>
+    <button [disabled]="!DepartamentoForm.valid" mat-raised-button color="primary">Agregar Departamento</button>
   </form>
     </div>

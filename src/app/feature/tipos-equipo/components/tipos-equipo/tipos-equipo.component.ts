@@ -59,7 +59,7 @@ export class TiposEquipoComponent implements OnInit {
           this.ListaTiposEquipos()
           this.TipoForm.reset();
         }, (error:any) => {
-          console.log(error)
+          
         this.toastr.error('¡Error!', `${error.error.Message}`);
    
       }

@@ -23,7 +23,7 @@ export class ColaboradoresService {
   ObtenerColaboradoresPorId(id:number){
     return this.http.get<Colaborador[]>(this.AppUrl+'BuscarColaboradorPorId'+'/'+id)
   }
-  RegistrarDepartamento(Colaborador:Colaborador){
+  RegistrarColaborador(Colaborador:Colaborador){
     return this.http.post(this.AppUrl+'RegistrarColaborador',Colaborador)
   }
 

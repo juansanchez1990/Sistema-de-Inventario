@@ -96,9 +96,9 @@ buscarColaborador(){
         
         if (this.ShowDataEdit===false){
 
-          this.ColabServicio.RegistrarDepartamento(Colaborador).subscribe(data=>{  
+          this.ColabServicio.RegistrarColaborador(Colaborador).subscribe(data=>{  
             this.toastr.success('¡Hecho!', 'Colaborador registrado');
-            
+            this.RecibirColaboradores();
           }, 
           
           (error:any) => {

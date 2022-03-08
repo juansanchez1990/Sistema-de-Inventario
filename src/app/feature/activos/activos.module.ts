@@ -16,6 +16,7 @@ import { BuscarReferenciaPipe } from './pipes/buscar-referencia.pipe';
 import { FormsModule } from '@angular/forms';
 import { BuscarDescripcionPipe } from './pipes/buscar-descripcion.pipe';
 import { BuscarColaboradorPipe } from './pipes/buscar-colaborador.pipe';
+import { BuscarDeptoPipe } from './pipes/buscar-depto.pipe';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { BuscarColaboradorPipe } from './pipes/buscar-colaborador.pipe';
     EquiposAsignadosComponent,
     BuscarReferenciaPipe,
     BuscarDescripcionPipe,
-    BuscarColaboradorPipe
+    BuscarColaboradorPipe,
+    BuscarDeptoPipe
   ],
   imports: [
     CommonModule,

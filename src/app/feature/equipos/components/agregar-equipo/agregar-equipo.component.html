@@ -49,7 +49,7 @@
         </mat-form-field>
         <mat-checkbox (change)="IsActivo($event)"  *ngIf="ShowDataEdit" [checked]='checked' class="mb-2" color="primary">Activo</mat-checkbox>
         <br>
-        <button class="m-1" (click)="RegistrarEquipo()" mat-raised-button color="primary">
+        <button [disabled]="!EquipoForm.valid" class="m-1" (click)="RegistrarEquipo()" mat-raised-button color="primary">
             <span *ngIf="!ShowDataEdit">Guardar</span>
             <span *ngIf="ShowDataEdit">Actualizar</span>
         </button>

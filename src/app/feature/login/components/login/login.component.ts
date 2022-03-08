@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  checked = false;
+  checked = true;
   indeterminate = false;
   usuarioRecord:string=""
   usuario:any[]=[]
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   }
   submit() {
     if (this.formLogin.valid) {
-      console.log()
+
       
      try{
 
@@ -41,7 +41,10 @@ export class LoginComponent implements OnInit {
         this.toastr.success('¡Hecho!', 'Inicio de sesión exitoso');
         this.loginService.EnviarUsuario(user);
    
-        this.router.navigate(['Home']);
+        //this.router.navigate(['/Home']);
+        this.router.navigateByUrl('/Home',{
+          replaceUrl:true
+        })
       }, (error:any) => {
        
       this.toastr.error('¡Error!', `${error.error.Message}`);

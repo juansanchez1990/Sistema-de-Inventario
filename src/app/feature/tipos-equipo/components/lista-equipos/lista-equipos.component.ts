@@ -36,8 +36,7 @@ export class ListaEquiposComponent implements OnInit {
   }
 
   onChangePage(pe:PageEvent) {
-    console.log(pe.pageIndex);
-    console.log(pe.pageSize);
+   
   }
 }
 

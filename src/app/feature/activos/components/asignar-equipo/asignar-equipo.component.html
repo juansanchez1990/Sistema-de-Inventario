@@ -5,6 +5,7 @@
   <mat-label>Tipo</mat-label>
   <mat-select disableRipple>
     <mat-option
+    (click)="ObtenerTipoSeleccionado(0)"
      [value]="0" >Todos</mat-option>
     <mat-option 
      *ngFor="let tipo of Tipos" 
@@ -54,6 +55,7 @@
               <li><p style="font-size: medium;">Descripción: {{equipos.Descripcion}}</p></li>
                <li><p style="font-size: medium;">Tipo: {{equipos.TipoDeEquipo}}</p></li>
               <li><p style="font-size: medium;">Marca: {{equipos.MarcaEquipo}}</p></li>
+              <li><p style="font-size: medium;">Referencia: {{equipos.Referencia}}</p></li>
               <!-- <li><p>Estado:
                   <span 
                   [ngStyle]="{  

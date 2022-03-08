@@ -38,7 +38,7 @@ export class AgregarDeptoComponent implements OnInit {
         }, 
         
         (error:any) => {
-          console.log(error)
+
         this.toastr.error('¡Error!', `${error.error.Message}`);
    
       }

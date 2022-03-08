@@ -48,7 +48,7 @@ this.ListaTiposEquipos()
         this.Equipos= equipo
       })
     }
-    console.log('Tipo', Tipo.id)
+ 
 
   }
 

@@ -4,5 +4,6 @@ export interface Colaborador {
     IdDepartamento:number,
     Activo:boolean,
     nombre_completo:string 
-    Departamento?:string
+    Departamento?:string,
+    Sucursal?:string
 }
