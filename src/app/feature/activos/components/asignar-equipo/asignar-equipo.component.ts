@@ -30,6 +30,7 @@ export class AsignarEquipoComponent implements OnInit {
 
   usuario: any
   ngOnInit() {
+
     this.ListaTiposEquipos()
     this.ActivoS.Colaboradores.subscribe(resp => {
       this.Colaboradores = resp
@@ -44,6 +45,10 @@ export class AsignarEquipoComponent implements OnInit {
     })
     this.ObtenerEquipos();
   }
+
+
+
+
   ObtenerEquipos() {
     this.ActivoS.ObtenerEquipos().subscribe(equipo => {
       this.Equipos = equipo

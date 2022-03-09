@@ -8,6 +8,7 @@ import { NavBarService } from './services/nav-bar.service';
 
 import { CoreModule } from './core/core.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from './material/material.module';
 
 
 @NgModule({

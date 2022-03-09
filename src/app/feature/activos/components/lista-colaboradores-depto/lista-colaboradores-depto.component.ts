@@ -10,11 +10,13 @@ import { ActivosService } from '../../servicios/activos.service';
 })
 export class ListaColaboradoresDeptoComponent implements OnInit {
 
-  constructor(private ActivoServicio:ActivosService,  private rutaActiva: ActivatedRoute) { }
+  constructor(private ActivoServicio:ActivosService, 
+              private rutaActiva: ActivatedRoute) { }
   ColaboradoresPorDepto:ColaboradorAsignar[]=[]
   idDepto: number = 0;
   nombreBuscar=""
   ngOnInit() {
+    window.scroll(0,0);
     this.idDepto = Number(this.rutaActiva.snapshot.params.parametro)
     this.ObtenerColaboradoresDepto();
 

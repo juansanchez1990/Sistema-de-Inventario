@@ -20,4 +20,11 @@ export class ListaDeptoAsignarComponent implements OnInit {
     })
   }
 
+
+  topFunction() {
+    setTimeout(() => {
+       document.querySelector('mat-sidenav-content')!.scrollTop = 0;
+     }, 100);
+   }
+
 }
